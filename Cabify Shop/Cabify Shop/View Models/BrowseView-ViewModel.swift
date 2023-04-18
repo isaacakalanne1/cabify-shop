@@ -5,13 +5,15 @@
 //  Created by iakalann on 18/04/2023.
 //
 
-import Foundation
+import SwiftUI
 
 extension BrowseView {
     @MainActor class ViewModel: ObservableObject {
         
         let standardPadding: CGFloat = 5
-        let minimumColumnSize: CGFloat = 140
+        let columns = [
+            GridItem(.adaptive(minimum: 140))
+        ]
         
         @Published var products = [Product]()
         
