@@ -10,6 +10,7 @@ import SwiftUI
 struct AddToCartButtonView: View {
     
     let size: CGFloat
+    private let iconName = "cart.fill"
     
     var body: some View {
         Button {
@@ -20,7 +21,7 @@ struct AddToCartButtonView: View {
                     .foregroundColor(.accentColor)
                     .frame(width: size,
                            height: size)
-                Image(systemName: "cart.fill")
+                Image(systemName: iconName)
                     .foregroundColor(.white)
             }
         }

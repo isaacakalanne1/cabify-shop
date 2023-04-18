@@ -24,7 +24,7 @@ struct ProductView: View {
         let formattedPrice = String(format: "$%.2f", price)
         
         VStack(alignment: .leading) {
-            productImage
+            ProductImage(imageName: imageName)
                 .foregroundColor(.accentColor)
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity,
@@ -43,16 +43,6 @@ struct ProductView: View {
             }
         }
         .background(Color.white)
-    }
-    
-    private var productImage: some View {
-        if let name = imageName {
-            return Image(name)
-                .resizable()
-        } else {
-            return Image(systemName: "questionmark")
-                .resizable()
-        }
     }
     
 }

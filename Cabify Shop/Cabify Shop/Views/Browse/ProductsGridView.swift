@@ -17,9 +17,9 @@ struct ProductsGridView: View {
                 ProductView(imageName: product.imageName,
                             productName: product.name,
                             price: product.price)
-                        }
+            }
             .padding(viewModel.standardPadding)
-                    }
+        }
     }
     
 }

@@ -11,8 +11,10 @@ struct QuantitySelectView: View {
     
     let viewHeight: CGFloat
     let padding: CGFloat
-    
     @Binding var quantity: Int
+    
+    private let subtractString = "-"
+    private let addString = "+"
     
     var body: some View {
         
@@ -22,7 +24,7 @@ struct QuantitySelectView: View {
             Button {
                 
             } label: {
-                Text("-")
+                Text(subtractString)
                     .font(.title)
                     .foregroundColor(Color.black)
                     .frame(maxWidth: .infinity)
@@ -36,7 +38,7 @@ struct QuantitySelectView: View {
             Button {
                 
             } label: {
-                Text("+")
+                Text(addString)
                     .font(.title)
                     .foregroundColor(Color.black)
                     .frame(maxWidth: .infinity)
