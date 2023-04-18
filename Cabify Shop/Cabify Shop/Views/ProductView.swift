@@ -15,6 +15,10 @@ struct ProductView: View {
     
     private let imageSize: CGFloat = 75
     
+    private let checkoutButtonSize: CGFloat = 26
+    private let padding: CGFloat = 5
+    @State var quantity: Int = 2
+    
     var body: some View {
         
         let formattedPrice = String(format: "$%.2f", price)
@@ -23,12 +27,31 @@ struct ProductView: View {
             Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: imageSize,
-                       height: imageSize)
+                .frame(maxWidth: .infinity,
+                       maxHeight: imageSize,
+                       alignment: .center)
             Text(productName)
             Text(formattedPrice)
                 .bold()
                 .foregroundColor(.accentColor)
+            HStack {
+                QuantitySelectView(viewHeight: checkoutButtonSize,
+                                   padding: padding,
+                                   quantity: $quantity)
+                Button {
+                    
+                } label: {
+                    ZStack {
+                        Circle()
+                            .foregroundColor(.accentColor)
+                            .frame(width: checkoutButtonSize + padding,
+                                   height: checkoutButtonSize + padding)
+                        Image(systemName: "cart.fill")
+                            .foregroundColor(.white)
+                    }
+                }
+
+            }
         }
         .background(Color.white)
     }

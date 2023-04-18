@@ -9,8 +9,8 @@ import SwiftUI
 
 struct QuantitySelectView: View {
     
-    private let viewHeight: CGFloat = 26
-    private let padding: CGFloat = 5
+    let viewHeight: CGFloat
+    let padding: CGFloat
     
     @Binding var quantity: Int
     
@@ -27,7 +27,12 @@ struct QuantitySelectView: View {
                     .foregroundColor(Color.black)
                     .frame(maxWidth: .infinity)
             }
+            Divider()
+                .background(Color.black)
             Text("\(quantity)")
+                .frame(maxWidth: .infinity)
+            Divider()
+                .background(Color.black)
             Button {
                 
             } label: {
@@ -58,8 +63,9 @@ struct QuantitySelectView_Previews: PreviewProvider {
         } set: { _ in
             
         }
-
         
-        QuantitySelectView(quantity: quantity)
+        QuantitySelectView(viewHeight: 26,
+                           padding: 5,
+                           quantity: quantity)
     }
 }
