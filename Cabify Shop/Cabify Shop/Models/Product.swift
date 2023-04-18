@@ -13,7 +13,7 @@ struct Product: Codable, Hashable {
     let price: Float
     
     var imageName: String? {
-        switch name {
+        switch code {
         case "TSHIRT":
             return "shirt-icon"
         case "MUG":
