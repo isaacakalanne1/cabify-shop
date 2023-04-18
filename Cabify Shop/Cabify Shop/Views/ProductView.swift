@@ -38,18 +38,7 @@ struct ProductView: View {
                 QuantitySelectView(viewHeight: checkoutButtonSize,
                                    padding: padding,
                                    quantity: $quantity)
-                Button {
-                    
-                } label: {
-                    ZStack {
-                        Circle()
-                            .foregroundColor(.accentColor)
-                            .frame(width: checkoutButtonSize + padding,
-                                   height: checkoutButtonSize + padding)
-                        Image(systemName: "cart.fill")
-                            .foregroundColor(.white)
-                    }
-                }
+                AddToCartButtonView(size: checkoutButtonSize + padding)
 
             }
         }

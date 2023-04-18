@@ -19,6 +19,7 @@
 		BB9F9A3429EF14710093C6E5 /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A3329EF14710093C6E5 /* ProductsResponse.swift */; };
 		BB9F9A3629EF14910093C6E5 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A3529EF14910093C6E5 /* ProductView.swift */; };
 		BB9F9A3829EF17ED0093C6E5 /* QuantitySelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A3729EF17ED0093C6E5 /* QuantitySelectView.swift */; };
+		BB9F9A3A29EF20600093C6E5 /* AddToCartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A3929EF20600093C6E5 /* AddToCartButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BB9F9A3329EF14710093C6E5 /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
 		BB9F9A3529EF14910093C6E5 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		BB9F9A3729EF17ED0093C6E5 /* QuantitySelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantitySelectView.swift; sourceTree = "<group>"; };
+		BB9F9A3929EF20600093C6E5 /* AddToCartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				BB9F9A0429EDD44D0093C6E5 /* ContentView.swift */,
 				BB9F9A3529EF14910093C6E5 /* ProductView.swift */,
 				BB9F9A3729EF17ED0093C6E5 /* QuantitySelectView.swift */,
+				BB9F9A3929EF20600093C6E5 /* AddToCartButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB9F9A3429EF14710093C6E5 /* ProductsResponse.swift in Sources */,
+				BB9F9A3A29EF20600093C6E5 /* AddToCartButtonView.swift in Sources */,
 				BB9F9A0529EDD44D0093C6E5 /* ContentView.swift in Sources */,
 				BB9F9A3229EF14310093C6E5 /* Product.swift in Sources */,
 				BB9F9A2D29EF13A50093C6E5 /* ContentView-ViewModel.swift in Sources */,
