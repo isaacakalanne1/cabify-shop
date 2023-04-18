@@ -11,10 +11,24 @@ struct ContentView: View {
     
     @StateObject private var viewModel = ViewModel()
     
+    let columns = [
+            GridItem(.adaptive(minimum: 140))
+        ]
+    
     var body: some View {
         VStack {
             banner
-            Text("Hello, world!")
+            LazyVGrid(columns: columns) {
+                ForEach(viewModel.products, id: \.self) { product in
+                    ProductView(imageName: product.imageName,
+                                productName: product.name,
+                                price: product.price)
+                            }
+                .padding(viewModel.productViewPadding)
+                        }
+        }
+        .task {
+            await viewModel.getProducts()
         }
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,

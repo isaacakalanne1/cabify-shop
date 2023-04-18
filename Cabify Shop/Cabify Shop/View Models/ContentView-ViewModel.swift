@@ -9,6 +9,9 @@ import Foundation
 
 extension ContentView {
     @MainActor class ViewModel: ObservableObject {
+        
+        let productViewPadding: CGFloat = 5
+        
         @Published var products = [Product]()
         
         func getProducts() async {

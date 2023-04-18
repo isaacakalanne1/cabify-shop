@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductView: View {
     
-    let imageName: String
+    let imageName: String?
     let productName: String
     let price: Float
     
@@ -24,8 +24,8 @@ struct ProductView: View {
         let formattedPrice = String(format: "$%.2f", price)
         
         VStack(alignment: .leading) {
-            Image(imageName)
-                .resizable()
+            productImage
+                .foregroundColor(.accentColor)
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity,
                        maxHeight: imageSize,
@@ -43,6 +43,16 @@ struct ProductView: View {
             }
         }
         .background(Color.white)
+    }
+    
+    private var productImage: some View {
+        if let name = imageName {
+            return Image(name)
+                .resizable()
+        } else {
+            return Image(systemName: "questionmark")
+                .resizable()
+        }
     }
     
 }

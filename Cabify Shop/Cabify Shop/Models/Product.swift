@@ -7,8 +7,21 @@
 
 import Foundation
 
-struct Product: Codable {
+struct Product: Codable, Hashable {
     let code: String
     let name: String
     let price: Float
+    
+    var imageName: String? {
+        switch name {
+        case "TSHIRT":
+            return "shirt-icon"
+        case "MUG":
+            return "mug-icon"
+        case "VOUCHER":
+            return "voucher-icon"
+        default:
+            return nil
+        }
+    }
 }
