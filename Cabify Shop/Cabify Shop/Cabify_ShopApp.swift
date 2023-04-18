@@ -11,7 +11,7 @@ import SwiftUI
 struct Cabify_ShopApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BrowseView()
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ContentView-ViewModel.swift
+//  BrowseView-ViewModel.swift
 //  Cabify Shop
 //
 //  Created by iakalann on 18/04/2023.
@@ -7,10 +7,11 @@
 
 import Foundation
 
-extension ContentView {
+extension BrowseView {
     @MainActor class ViewModel: ObservableObject {
         
-        let productViewPadding: CGFloat = 5
+        let standardPadding: CGFloat = 5
+        let minimumColumnSize: CGFloat = 140
         
         @Published var products = [Product]()
         

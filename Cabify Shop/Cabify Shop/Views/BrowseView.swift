@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  BrowseView.swift
 //  Cabify Shop
 //
 //  Created by iakalann on 17/04/2023.
@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct BrowseView: View {
     
     @StateObject private var viewModel = ViewModel()
     
-    let columns = [
-            GridItem(.adaptive(minimum: 140))
-        ]
-    
     var body: some View {
+        
+        let columns = [
+            GridItem(.adaptive(minimum: viewModel.minimumColumnSize))
+        ]
+        
         VStack {
             banner
             LazyVGrid(columns: columns) {
@@ -24,7 +25,7 @@ struct ContentView: View {
                                 productName: product.name,
                                 price: product.price)
                             }
-                .padding(viewModel.productViewPadding)
+                .padding(viewModel.standardPadding)
                         }
         }
         .task {
@@ -49,8 +50,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct BrowseView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        BrowseView()
     }
 }

@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BB9F9A0329EDD44D0093C6E5 /* Cabify_ShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A0229EDD44D0093C6E5 /* Cabify_ShopApp.swift */; };
-		BB9F9A0529EDD44D0093C6E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A0429EDD44D0093C6E5 /* ContentView.swift */; };
+		BB9F9A0529EDD44D0093C6E5 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A0429EDD44D0093C6E5 /* BrowseView.swift */; };
 		BB9F9A0729EDD44F0093C6E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9F9A0629EDD44F0093C6E5 /* Assets.xcassets */; };
 		BB9F9A0A29EDD44F0093C6E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9F9A0929EDD44F0093C6E5 /* Preview Assets.xcassets */; };
 		BB9F9A1429EDD44F0093C6E5 /* Cabify_ShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A1329EDD44F0093C6E5 /* Cabify_ShopTests.swift */; };
 		BB9F9A1E29EDD44F0093C6E5 /* Cabify_ShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A1D29EDD44F0093C6E5 /* Cabify_ShopUITests.swift */; };
 		BB9F9A2029EDD44F0093C6E5 /* Cabify_ShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A1F29EDD44F0093C6E5 /* Cabify_ShopUITestsLaunchTests.swift */; };
-		BB9F9A2D29EF13A50093C6E5 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A2C29EF13A50093C6E5 /* ContentView-ViewModel.swift */; };
+		BB9F9A2D29EF13A50093C6E5 /* BrowseView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A2C29EF13A50093C6E5 /* BrowseView-ViewModel.swift */; };
 		BB9F9A3229EF14310093C6E5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A3129EF14310093C6E5 /* Product.swift */; };
 		BB9F9A3429EF14710093C6E5 /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A3329EF14710093C6E5 /* ProductsResponse.swift */; };
 		BB9F9A3629EF14910093C6E5 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F9A3529EF14910093C6E5 /* ProductView.swift */; };
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		BB9F99FF29EDD44D0093C6E5 /* Cabify Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9F9A0229EDD44D0093C6E5 /* Cabify_ShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cabify_ShopApp.swift; sourceTree = "<group>"; };
-		BB9F9A0429EDD44D0093C6E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BB9F9A0429EDD44D0093C6E5 /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		BB9F9A0629EDD44F0093C6E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB9F9A0929EDD44F0093C6E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BB9F9A0F29EDD44F0093C6E5 /* Cabify ShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cabify ShopTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +50,7 @@
 		BB9F9A1929EDD44F0093C6E5 /* Cabify ShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cabify ShopUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9F9A1D29EDD44F0093C6E5 /* Cabify_ShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cabify_ShopUITests.swift; sourceTree = "<group>"; };
 		BB9F9A1F29EDD44F0093C6E5 /* Cabify_ShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cabify_ShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		BB9F9A2C29EF13A50093C6E5 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		BB9F9A2C29EF13A50093C6E5 /* BrowseView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseView-ViewModel.swift"; sourceTree = "<group>"; };
 		BB9F9A3129EF14310093C6E5 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		BB9F9A3329EF14710093C6E5 /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
 		BB9F9A3529EF14910093C6E5 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		BB9F9A2F29EF14220093C6E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BB9F9A0429EDD44D0093C6E5 /* ContentView.swift */,
+				BB9F9A0429EDD44D0093C6E5 /* BrowseView.swift */,
 				BB9F9A3529EF14910093C6E5 /* ProductView.swift */,
 				BB9F9A3729EF17ED0093C6E5 /* QuantitySelectView.swift */,
 				BB9F9A3929EF20600093C6E5 /* AddToCartButtonView.swift */,
@@ -164,7 +164,7 @@
 		BB9F9A3029EF14260093C6E5 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				BB9F9A2C29EF13A50093C6E5 /* ContentView-ViewModel.swift */,
+				BB9F9A2C29EF13A50093C6E5 /* BrowseView-ViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -301,9 +301,9 @@
 			files = (
 				BB9F9A3429EF14710093C6E5 /* ProductsResponse.swift in Sources */,
 				BB9F9A3A29EF20600093C6E5 /* AddToCartButtonView.swift in Sources */,
-				BB9F9A0529EDD44D0093C6E5 /* ContentView.swift in Sources */,
+				BB9F9A0529EDD44D0093C6E5 /* BrowseView.swift in Sources */,
 				BB9F9A3229EF14310093C6E5 /* Product.swift in Sources */,
-				BB9F9A2D29EF13A50093C6E5 /* ContentView-ViewModel.swift in Sources */,
+				BB9F9A2D29EF13A50093C6E5 /* BrowseView-ViewModel.swift in Sources */,
 				BB9F9A3629EF14910093C6E5 /* ProductView.swift in Sources */,
 				BB9F9A0329EDD44D0093C6E5 /* Cabify_ShopApp.swift in Sources */,
 				BB9F9A3829EF17ED0093C6E5 /* QuantitySelectView.swift in Sources */,
