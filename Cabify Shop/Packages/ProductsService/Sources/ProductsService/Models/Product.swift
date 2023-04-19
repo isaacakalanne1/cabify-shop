@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Codable, Hashable {
+public struct Product: Codable, Hashable {
     let code: String
     let name: String
     let price: Float

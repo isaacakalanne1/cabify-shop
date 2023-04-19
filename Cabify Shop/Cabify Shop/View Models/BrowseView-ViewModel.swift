@@ -6,10 +6,7 @@
 //
 
 import SwiftUI
-
-protocol ServiceProtocol {
-    func getProducts() async -> [Product]?
-}
+import ProductsService
 
 extension BrowseView {
     @MainActor class ViewModel: ObservableObject {
@@ -20,10 +17,11 @@ extension BrowseView {
         ]
         
         @Published var isLoading = false // TODO: Update app to use isLoading (possibly an enum) to determine whether to show spinner, content, or explanation
+        
         @Published var products = [Product]()
         let service: ServiceProtocol
         
-        init(service: ServiceProtocol) {
+        init(service: ServiceProtocol = ProductsService()) {
             self.service = service
         }
         
