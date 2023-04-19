@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+protocol ServiceProtocol {
+    func getProducts() async -> [Product]?
+}
+
 extension BrowseView {
     @MainActor class ViewModel: ObservableObject {
         
@@ -15,19 +19,17 @@ extension BrowseView {
             GridItem(.adaptive(minimum: 140))
         ]
         
+        @Published var isLoading = false // TODO: Update app to use isLoading (possibly an enum) to determine whether to show spinner, content, or explanation
         @Published var products = [Product]()
+        let service: ServiceProtocol
+        
+        init(service: ServiceProtocol) {
+            self.service = service
+        }
         
         func getProducts() async {
-            
-            let urlString = "https://gist.githubusercontent.com/palcalde/6c19259bd32dd6aafa327fa557859c2f/raw/ba51779474a150ee4367cda4f4ffacdcca479887/Products.json"
-            
-            guard let url = URL(string: urlString) else { return }
-            
-            guard let (data, _) = try? await URLSession.shared.data(from: url) else { return }
-            
-            guard let decodedResponse = try? JSONDecoder().decode(ProductsResponse.self, from: data) else { return }
-            
-            products = decodedResponse.products
+            guard let productsList = await service.getProducts() else { return }
+            products = productsList
         }
     }
 }
