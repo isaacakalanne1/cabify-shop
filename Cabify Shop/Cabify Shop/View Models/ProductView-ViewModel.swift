@@ -12,9 +12,11 @@ extension ProductView {
     @MainActor class ViewModel: ObservableObject {
         
         let product: Product
+        let formattedPrice: String
         
         public init(product: Product) {
             self.product = product
+            self.formattedPrice = String(format: "$%.2f", product.price)
         }
         
         let imageSize: CGFloat = 75

@@ -17,8 +17,6 @@ struct ProductView: View {
     
     var body: some View {
         
-        let formattedPrice = String(format: "$%.2f", productViewModel.product.price)
-        
         VStack(alignment: .leading) {
             ProductImage(imageName: productViewModel.product.imageName)
                 .foregroundColor(.accentColor)
@@ -27,7 +25,7 @@ struct ProductView: View {
                        maxHeight: productViewModel.imageSize,
                        alignment: .center)
             Text(productViewModel.product.name)
-            Text(formattedPrice)
+            Text(productViewModel.formattedPrice)
                 .bold()
                 .foregroundColor(.accentColor)
             HStack {
