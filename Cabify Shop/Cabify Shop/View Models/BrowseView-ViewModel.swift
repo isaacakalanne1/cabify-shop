@@ -21,6 +21,7 @@ extension BrowseView {
         
         @Published var allProducts = [Product]()
         @Published var productsInCart = [Product: Int]()
+        @Published var isShowingCart = false
         let service: ServiceProtocol
         
         init(service: ServiceProtocol = ProductsService()) {
@@ -42,6 +43,10 @@ extension BrowseView {
         
         func removeProductFromCart(product: Product) {
             
+        }
+        
+        func toggleCart() {
+            isShowingCart.toggle()
         }
     }
 }

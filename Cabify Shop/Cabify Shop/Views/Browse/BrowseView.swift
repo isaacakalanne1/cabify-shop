@@ -16,6 +16,10 @@ struct BrowseView: View {
         VStack {
             BannerView()
             ProductsGridView(viewModel: viewModel)
+                .frame(maxHeight: .infinity)
+            ViewCartButtonView {
+                viewModel.toggleCart()
+            }
         }
         .task {
             await viewModel.getProducts()
@@ -23,6 +27,10 @@ struct BrowseView: View {
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
                alignment: .top)
+        .sheet(isPresented: $viewModel.isShowingCart) {
+            Text("Hi!")
+            .presentationDetents([.medium, .large])
+        }
     }
 }
 

@@ -54,6 +54,8 @@ struct ProductView: View {
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
         ProductView(viewModel: BrowseView.ViewModel(),
-                    productViewModel: ProductView.ViewModel(product: Product(code: "mug", name: "MUG", price: 7.5)))
+                    productViewModel: ProductView.ViewModel(product: Product(code: "mug",
+                                                                             name: "MUG",
+                                                                             price: 7.5)))
     }
 }
