@@ -33,6 +33,7 @@ struct ProductView: View {
                                    productViewModel: productViewModel,
                                    quantity: $quantity)
                 AddToCartButtonView(size: productViewModel.checkoutButtonSize + viewModel.standardPadding) {
+                    guard quantity > 0 else { return }
                     viewModel.addProductsToCart(count: quantity,
                                                 product: productViewModel.product)
                     quantity = 0
