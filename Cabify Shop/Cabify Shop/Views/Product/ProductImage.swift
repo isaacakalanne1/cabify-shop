@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import ProductsService
 
 struct ProductImage: View {
     
-    @StateObject var productViewModel: ProductView.ViewModel
+    @StateObject var viewModel: BrowseView.ViewModel
+    let product: Product
     
     var body: some View {
         Group {
-            if let name = productViewModel.product.imageName {
+            if let name = product.imageName {
                 Image(name)
                     .resizable()
             } else {
@@ -24,7 +26,7 @@ struct ProductImage: View {
         .foregroundColor(.accentColor)
         .aspectRatio(contentMode: .fit)
         .frame(maxWidth: .infinity,
-               maxHeight: productViewModel.imageSize,
+               maxHeight: viewModel.imageSize,
                alignment: .center)
     }
     

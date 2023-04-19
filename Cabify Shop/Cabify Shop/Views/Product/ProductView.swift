@@ -11,26 +11,24 @@ import ProductsService
 struct ProductView: View {
     
     @StateObject var viewModel: BrowseView.ViewModel
-    @StateObject var productViewModel: ViewModel
+    let product: Product
     
     @State var quantity: Int = 0
     
     var body: some View {
         
         VStack(alignment: .leading) {
-            ProductImage(productViewModel: productViewModel)
-            Text(productViewModel.product.name)
-            Text(productViewModel.formattedPrice)
+            ProductImage(viewModel: viewModel, product: product)
+            Text(product.name)
+            Text(product.formattedPrice)
                 .bold()
                 .foregroundColor(.accentColor)
             HStack {
-                QuantitySelectView(viewModel: viewModel,
-                                   productViewModel: productViewModel,
-                                   quantity: $quantity)
-                AddToCartButtonView(size: productViewModel.checkoutButtonSize + viewModel.standardPadding) {
+                QuantitySelectView(viewModel: viewModel, quantity: $quantity)
+                AddToCartButtonView(size: viewModel.checkoutButtonSize + viewModel.standardPadding) {
                     guard quantity > 0 else { return }
                     viewModel.addProductsToCart(count: quantity,
-                                                product: productViewModel.product)
+                                                product: product)
                     quantity = 0
                     print(viewModel.productsInCart)
                 }
@@ -38,9 +36,9 @@ struct ProductView: View {
         }
         .padding(viewModel.largePadding)
         .background(Color.white
-            .cornerRadius(productViewModel.cornerRadius)
+            .cornerRadius(viewModel.cornerRadius)
             .shadow(color: Color.gray,
-                    radius: productViewModel.shadowRadius,
+                    radius: viewModel.shadowRadius,
                     x: 0,
                     y: 0)
         )
@@ -50,8 +48,8 @@ struct ProductView: View {
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
         ProductView(viewModel: BrowseView.ViewModel(),
-                    productViewModel: ProductView.ViewModel(product: Product(code: "mug",
-                                                                             name: "MUG",
-                                                                             price: 7.5)))
+                    product: Product(code: "mug",
+                                     name: "MUG",
+                                     price: 7.5))
     }
 }

@@ -11,7 +11,6 @@ import ProductsService
 struct QuantitySelectView: View {
     
     @StateObject var viewModel: BrowseView.ViewModel
-    @StateObject var productViewModel: ProductView.ViewModel
     @Binding var quantity: Int
     
     private let subtractString = "-"
@@ -19,7 +18,7 @@ struct QuantitySelectView: View {
     
     var body: some View {
         
-        let buttonSize = productViewModel.checkoutButtonSize
+        let buttonSize = viewModel.checkoutButtonSize
         let cornerRadius: CGFloat = (buttonSize + viewModel.standardPadding)/2
         
         HStack {
@@ -69,10 +68,6 @@ struct QuantitySelectView_Previews: PreviewProvider {
             
         }
         
-        QuantitySelectView(viewModel: .init(),
-                           productViewModel: .init(product: Product(code: "mug",
-                                                                    name: "MUG",
-                                                                    price: 7.5)),
-                           quantity: quantity)
+        QuantitySelectView(viewModel: .init(), quantity: quantity)
     }
 }

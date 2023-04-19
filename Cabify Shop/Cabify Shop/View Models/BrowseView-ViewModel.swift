@@ -17,6 +17,11 @@ extension BrowseView {
             GridItem(.adaptive(minimum: 140))
         ]
         
+        let imageSize: CGFloat = 75
+        let cornerRadius: CGFloat = 10
+        let shadowRadius: CGFloat = 5
+        let checkoutButtonSize: CGFloat = 26
+        
         @Published var isLoading = false // TODO: Update app to use isLoading (possibly an enum) to determine whether to show spinner, content, or explanation
         
         @Published var allProducts = [Product]()
@@ -29,7 +34,10 @@ extension BrowseView {
         }
         
         func getProducts() async {
-            guard let productsList = await service.getProducts() else { return }
+            guard let productsList = await service.getProducts() else {
+                print("Nah!")
+                return
+            }
             allProducts = productsList
         }
         

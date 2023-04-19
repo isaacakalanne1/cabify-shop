@@ -14,9 +14,7 @@ struct ProductsGridView: View {
     var body: some View {
         LazyVGrid(columns: viewModel.columns) {
             ForEach(viewModel.allProducts, id: \.self) { product in
-                let productViewModel = ProductView.ViewModel(product: product)
-                ProductView(viewModel: viewModel,
-                            productViewModel: productViewModel)
+                ProductView(viewModel: viewModel, product: product)
             }
             .padding(viewModel.largePadding)
         }

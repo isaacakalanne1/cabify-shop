@@ -11,30 +11,26 @@ import ProductsService
 struct ProductCartView: View {
     
     @StateObject var viewModel: BrowseView.ViewModel
-    @StateObject var productViewModel: ProductView.ViewModel
+    let product: Product
     
     @State var quantity: Int
     
     var body: some View {
         HStack {
-            ProductImage(productViewModel: productViewModel)
+            ProductImage(viewModel: viewModel, product: product)
             VStack {
-                Text(productViewModel.product.name)
-                    .multilineTextAlignment(.leading)
+                Text(product.name)
                     .frame(maxHeight: .infinity, alignment: .leading)
-                Text("\(productViewModel.formattedPrice)") // TODO: Replace with PriceTextView which displays either the normal price, or the original price in strikethrough, then the discounted price in bold with the accent colour
-                    .multilineTextAlignment(.leading)
+                Text("\(product.formattedPrice)") // TODO: Replace with PriceTextView which displays either the normal price, or the original price in strikethrough, then the discounted price in bold with the accent colour
                     .frame(maxHeight: .infinity, alignment: .leading)
             }
-            QuantitySelectView(viewModel: viewModel,
-                               productViewModel: productViewModel,
-                               quantity: $quantity)
-            .frame(width: 130, height: 50)
+            QuantitySelectView(viewModel: viewModel, quantity: $quantity)
+                .frame(width: 130, height: 50)
         }
         .background(Color.white
-            .cornerRadius(productViewModel.cornerRadius)
+            .cornerRadius(viewModel.cornerRadius)
             .shadow(color: Color.gray,
-                    radius: productViewModel.shadowRadius,
+                    radius: viewModel.shadowRadius,
                     x: 0,
                     y: 0)
         )

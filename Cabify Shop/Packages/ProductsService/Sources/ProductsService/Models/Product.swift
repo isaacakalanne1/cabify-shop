@@ -11,6 +11,9 @@ public struct Product: Codable, Hashable {
     let code: String
     public let name: String
     public let price: Float
+    public var formattedPrice: String {
+        String(format: "$%.2f", self.price)
+    }
     
     public init(code: String, name: String, price: Float) {
         self.code = code

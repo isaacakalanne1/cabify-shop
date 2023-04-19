@@ -16,7 +16,7 @@ struct CartView: View {
             ForEach(Array(viewModel.productsInCart.keys), id: \.self) {
                 if let quantity = viewModel.quantityInCart(of: $0) {
                     ProductCartView(viewModel: viewModel,
-                                    productViewModel: .init(product: $0),
+                                    product: $0,
                                     quantity: quantity)
                     .frame(height: 100)
                 }
