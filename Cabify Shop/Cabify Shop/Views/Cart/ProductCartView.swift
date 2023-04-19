@@ -15,11 +15,12 @@ struct ProductCartView: View {
     
     var body: some View {
         
-        var quantity: Binding<Int> = .init {
+        let quantity: Binding<Int> = .init {
             viewModel.productsInCart[product] ?? 0
         } set: { newValue in
             viewModel.setProductsInCart(count: newValue, product: product)
         }
+        
         HStack {
             ProductImage(viewModel: viewModel, product: product)
             VStack {
