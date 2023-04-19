@@ -9,16 +9,23 @@ import SwiftUI
 
 struct ProductImage: View {
     
-    let imageName: String?
+    @StateObject var productViewModel: ProductView.ViewModel
     
     var body: some View {
-        if let name = imageName {
-            return Image(name)
-                .resizable()
-        } else {
-            return Image(systemName: "questionmark")
-                .resizable()
+        Group {
+            if let name = productViewModel.product.imageName {
+                Image(name)
+                    .resizable()
+            } else {
+                Image(systemName: "questionmark")
+                    .resizable()
+            }
         }
+        .foregroundColor(.accentColor)
+        .aspectRatio(contentMode: .fit)
+        .frame(maxWidth: .infinity,
+               maxHeight: productViewModel.imageSize,
+               alignment: .center)
     }
     
 }

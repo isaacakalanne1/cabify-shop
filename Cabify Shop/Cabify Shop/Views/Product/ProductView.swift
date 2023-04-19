@@ -18,12 +18,7 @@ struct ProductView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            ProductImage(imageName: productViewModel.product.imageName)
-                .foregroundColor(.accentColor)
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: .infinity,
-                       maxHeight: productViewModel.imageSize,
-                       alignment: .center)
+            ProductImage(productViewModel: productViewModel)
             Text(productViewModel.product.name)
             Text(productViewModel.formattedPrice)
                 .bold()

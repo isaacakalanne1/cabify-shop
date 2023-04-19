@@ -45,6 +45,10 @@ extension BrowseView {
             
         }
         
+        func quantityInCart(of product: Product) -> Int? {
+            return productsInCart[product]
+        }
+        
         func toggleCart() {
             isShowingCart.toggle()
         }
