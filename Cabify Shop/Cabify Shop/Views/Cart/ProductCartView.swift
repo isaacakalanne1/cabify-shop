@@ -13,9 +13,13 @@ struct ProductCartView: View {
     @StateObject var viewModel: BrowseView.ViewModel
     let product: Product
     
-    @State var quantity: Int
-    
     var body: some View {
+        
+        var quantity: Binding<Int> = .init {
+            viewModel.productsInCart[product] ?? 0
+        } set: { newValue in
+            viewModel.setProductsInCart(count: newValue, product: product)
+        }
         HStack {
             ProductImage(viewModel: viewModel, product: product)
             VStack {
@@ -24,7 +28,7 @@ struct ProductCartView: View {
                 Text("\(product.formattedPrice)") // TODO: Replace with PriceTextView which displays either the normal price, or the original price in strikethrough, then the discounted price in bold with the accent colour
                     .frame(maxHeight: .infinity, alignment: .leading)
             }
-            QuantitySelectView(viewModel: viewModel, quantity: $quantity)
+            QuantitySelectView(viewModel: viewModel, quantity: quantity)
                 .frame(width: 130, height: 50)
         }
         .background(Color.white

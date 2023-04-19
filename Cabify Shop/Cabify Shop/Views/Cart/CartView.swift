@@ -14,10 +14,10 @@ struct CartView: View {
     var body: some View {
         VStack {
             ForEach(Array(viewModel.productsInCart.keys), id: \.self) {
-                if let quantity = viewModel.quantityInCart(of: $0) {
+                if let quantity = viewModel.quantityInCart(of: $0),
+                   quantity > 0 {
                     ProductCartView(viewModel: viewModel,
-                                    product: $0,
-                                    quantity: quantity)
+                                    product: $0)
                     .frame(height: 100)
                 }
             }
