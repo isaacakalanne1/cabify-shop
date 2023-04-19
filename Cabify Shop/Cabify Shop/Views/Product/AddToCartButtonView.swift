@@ -12,9 +12,11 @@ struct AddToCartButtonView: View {
     let size: CGFloat
     private let iconName = "cart.fill"
     
+    let tappedButton: () -> Void
+    
     var body: some View {
         Button {
-            
+            tappedButton()
         } label: {
             ZStack {
                 Circle()
@@ -32,7 +34,9 @@ struct AddToCartButtonView: View {
 struct AddToCartButtonView_Previews: PreviewProvider {
     
     static var previews: some View {
-        AddToCartButtonView(size: 30)
+        AddToCartButtonView(size: 30) {
+            
+        }
     }
 }
 

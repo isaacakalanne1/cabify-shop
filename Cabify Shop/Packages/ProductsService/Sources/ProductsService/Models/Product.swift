@@ -9,10 +9,16 @@ import Foundation
 
 public struct Product: Codable, Hashable {
     let code: String
-    let name: String
-    let price: Float
+    public let name: String
+    public let price: Float
     
-    var imageName: String? {
+    public init(code: String, name: String, price: Float) {
+        self.code = code
+        self.name = name
+        self.price = price
+    }
+    
+    public var imageName: String? {
         switch code {
         case "TSHIRT":
             return "shirt-icon"

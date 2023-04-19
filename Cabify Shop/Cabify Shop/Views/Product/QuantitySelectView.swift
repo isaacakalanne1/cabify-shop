@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import ProductsService
 
 struct QuantitySelectView: View {
     
-    let viewHeight: CGFloat
-    let padding: CGFloat
+    @StateObject var viewModel: BrowseView.ViewModel
+    @StateObject var productViewModel: ProductView.ViewModel
     @Binding var quantity: Int
     
     private let subtractString = "-"
@@ -18,11 +19,12 @@ struct QuantitySelectView: View {
     
     var body: some View {
         
-        let cornerRadius: CGFloat = (viewHeight + padding)/2
+        let buttonSize = productViewModel.checkoutButtonSize
+        let cornerRadius: CGFloat = (buttonSize + viewModel.standardPadding)/2
         
         HStack {
             Button {
-                
+                quantity -= 1
             } label: {
                 Text(subtractString)
                     .font(.title)
@@ -36,7 +38,7 @@ struct QuantitySelectView: View {
             Divider()
                 .background(Color.black)
             Button {
-                
+                quantity += 1
             } label: {
                 Text(addString)
                     .font(.title)
@@ -45,8 +47,8 @@ struct QuantitySelectView: View {
             }
         }
         .frame(maxWidth: .infinity,
-               maxHeight: viewHeight)
-        .padding(padding)
+               maxHeight: buttonSize)
+        .padding(viewModel.standardPadding)
         .cornerRadius(cornerRadius)
         .overlay(
             RoundedRectangle(cornerRadius: cornerRadius)
@@ -66,8 +68,10 @@ struct QuantitySelectView_Previews: PreviewProvider {
             
         }
         
-        QuantitySelectView(viewHeight: 26,
-                           padding: 5,
+        QuantitySelectView(viewModel: .init(),
+                           productViewModel: .init(product: Product(code: "mug",
+                                                                    name: "MUG",
+                                                                    price: 7.5)),
                            quantity: quantity)
     }
 }

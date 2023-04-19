@@ -6,51 +6,56 @@
 //
 
 import SwiftUI
+import ProductsService
 
 struct ProductView: View {
     
-    let imageName: String?
-    let productName: String
-    let price: Float
+    @StateObject var viewModel: BrowseView.ViewModel
+    @StateObject var productViewModel: ViewModel
     
-    private let imageSize: CGFloat = 75
-    
-    private let checkoutButtonSize: CGFloat = 26
-    private let padding: CGFloat = 5
-    @State var quantity: Int = 2
+    @State var quantity: Int = 0
     
     var body: some View {
         
-        let formattedPrice = String(format: "$%.2f", price)
+        let formattedPrice = String(format: "$%.2f", productViewModel.product.price)
         
         VStack(alignment: .leading) {
-            ProductImage(imageName: imageName)
+            ProductImage(imageName: productViewModel.product.imageName)
                 .foregroundColor(.accentColor)
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity,
-                       maxHeight: imageSize,
+                       maxHeight: productViewModel.imageSize,
                        alignment: .center)
-            Text(productName)
+            Text(productViewModel.product.name)
             Text(formattedPrice)
                 .bold()
                 .foregroundColor(.accentColor)
             HStack {
-                QuantitySelectView(viewHeight: checkoutButtonSize,
-                                   padding: padding,
+                QuantitySelectView(viewModel: viewModel,
+                                   productViewModel: productViewModel,
                                    quantity: $quantity)
-                AddToCartButtonView(size: checkoutButtonSize + padding)
-
+                AddToCartButtonView(size: productViewModel.checkoutButtonSize + viewModel.standardPadding) {
+                    viewModel.addProductsToCart(count: quantity,
+                                                product: productViewModel.product)
+                    quantity = 0
+                    print(viewModel.productsInCart)
+                }
             }
         }
-        .background(Color.white)
+        .padding(viewModel.largePadding)
+        .background(Color.white
+            .cornerRadius(productViewModel.cornerRadius)
+            .shadow(color: Color.gray,
+                    radius: productViewModel.shadowRadius,
+                    x: 0,
+                    y: 0)
+        )
     }
-    
 }
 
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductView(imageName: "mug-icon",
-                    productName: "Mug",
-                    price: 7.5)
+        ProductView(viewModel: BrowseView.ViewModel(),
+                    productViewModel: ProductView.ViewModel(product: Product(code: "mug", name: "MUG", price: 7.5)))
     }
 }

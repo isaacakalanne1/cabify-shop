@@ -13,12 +13,12 @@ struct ProductsGridView: View {
     
     var body: some View {
         LazyVGrid(columns: viewModel.columns) {
-            ForEach(viewModel.products, id: \.self) { product in
-                ProductView(imageName: product.imageName,
-                            productName: product.name,
-                            price: product.price)
+            ForEach(viewModel.allProducts, id: \.self) { product in
+                let productViewModel = ProductView.ViewModel(product: product)
+                ProductView(viewModel: viewModel,
+                            productViewModel: productViewModel)
             }
-            .padding(viewModel.standardPadding)
+            .padding(viewModel.largePadding)
         }
     }
     
