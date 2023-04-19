@@ -24,6 +24,7 @@ struct QuantitySelectView: View {
         
         HStack {
             Button {
+                guard quantity > 0 else { return }
                 quantity -= 1
             } label: {
                 Text(subtractString)
