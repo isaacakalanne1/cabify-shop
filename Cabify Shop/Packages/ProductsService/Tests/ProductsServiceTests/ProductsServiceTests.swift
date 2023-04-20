@@ -1,5 +1,12 @@
+//
+//  ProductsServiceTests.swift
+//
+//
+//  Created by iakalann on 20/04/2023.
+//
+
 import XCTest
-@testable import ProductsService
+import ProductsService
 @testable import ProductsServiceMocks
 
 final class ProductsServiceTests: XCTestCase {

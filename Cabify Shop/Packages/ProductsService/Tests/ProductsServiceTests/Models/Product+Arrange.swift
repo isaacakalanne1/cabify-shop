@@ -5,7 +5,6 @@
 //  Created by iakalann on 20/04/2023.
 //
 
-import Foundation
 import ProductsService
 
 extension Product {
