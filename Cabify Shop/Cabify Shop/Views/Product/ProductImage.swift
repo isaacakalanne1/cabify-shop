@@ -19,7 +19,7 @@ struct ProductImage: View {
                 Image(name)
                     .resizable()
             } else {
-                Image(systemName: "questionmark")
+                Image(systemName: "scribble.variable")
                     .resizable()
             }
         }
