@@ -1,16 +1,20 @@
 //
-//  AddToCartButtonView.swift
+//  CircleButtonView.swift
 //  Cabify Shop
 //
-//  Created by iakalann on 18/04/2023.
+//  Created by iakalann on 20/04/2023.
 //
 
 import SwiftUI
 
-struct AddToCartButtonView: View {
+struct CircleButtonView: View {
     
     let size: CGFloat
-    private let iconName = "cart.circle.fill"
+    let type: CircleButtonType
+    
+    private var imageIconName: String {
+        type.iconName + ".circle.fill"
+    }
     
     let tappedButton: () -> Void
     
@@ -18,7 +22,7 @@ struct AddToCartButtonView: View {
         Button {
             tappedButton()
         } label: {
-            Image(systemName: iconName)
+            Image(systemName: imageIconName)
                 .resizable()
                 .foregroundColor(.accentColor)
                 .frame(width: size, height: size)
@@ -26,11 +30,3 @@ struct AddToCartButtonView: View {
     }
     
 }
-
-struct AddToCartButtonView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        AddToCartButtonView(size: 30) { }
-    }
-}
-

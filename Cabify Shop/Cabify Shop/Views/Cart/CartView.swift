@@ -17,7 +17,8 @@ struct CartView: View {
                 HStack {
                     ProductCartView(viewModel: viewModel, product: product)
                         .frame(maxWidth: .infinity, maxHeight: 120)
-                    RemoveFromCartButtonView(size: viewModel.checkoutButtonSize + viewModel.standardPadding) {
+                    CircleButtonView(size: viewModel.checkoutButtonSize + viewModel.standardPadding,
+                                     type: .trash) {
                         viewModel.removeProductFromCart(product)
                     }
                 }
