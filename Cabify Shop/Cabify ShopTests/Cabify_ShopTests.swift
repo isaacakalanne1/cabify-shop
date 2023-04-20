@@ -43,5 +43,17 @@ final class Cabify_ShopTests: XCTestCase {
         let allProducts = await viewModel.allProducts
         XCTAssertEqual(allProducts, [Product]())
     }
+    
+    func testAddProductToCart() async throws {
+        let expectedProduct = Product.arrange
+        let expectedCountInCart = 3
+        
+        let viewModel = await BrowseView.ViewModel()
+        await viewModel.addProductsToCart(count: expectedCountInCart, product: expectedProduct)
+        
+        let resultCountInCart = await viewModel.quantityInCart(of: expectedProduct)
+        
+        XCTAssertEqual(expectedCountInCart, resultCountInCart)
+    }
 
 }
