@@ -10,7 +10,7 @@ import SwiftUI
 struct AddToCartButtonView: View {
     
     let size: CGFloat
-    private let iconName = "cart.fill"
+    private let iconName = "cart.circle.fill"
     
     let tappedButton: () -> Void
     
@@ -18,14 +18,10 @@ struct AddToCartButtonView: View {
         Button {
             tappedButton()
         } label: {
-            ZStack {
-                Circle()
-                    .foregroundColor(.accentColor)
-                    .frame(width: size,
-                           height: size)
-                Image(systemName: iconName)
-                    .foregroundColor(.white)
-            }
+            Image(systemName: iconName)
+                .resizable()
+                .foregroundColor(.accentColor)
+                .frame(width: size, height: size)
         }
     }
     
@@ -34,9 +30,7 @@ struct AddToCartButtonView: View {
 struct AddToCartButtonView_Previews: PreviewProvider {
     
     static var previews: some View {
-        AddToCartButtonView(size: 30) {
-            
-        }
+        AddToCartButtonView(size: 30) { }
     }
 }
 
