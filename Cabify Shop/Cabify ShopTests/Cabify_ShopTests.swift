@@ -44,7 +44,7 @@ final class Cabify_ShopTests: XCTestCase {
         XCTAssertEqual(allProducts, [Product]())
     }
     
-    func testAddProductToCart() async throws {
+    func testAddProductToCart_3() async throws {
         let expectedProduct = Product.arrange
         let expectedCountInCart = 3
         
@@ -54,6 +54,42 @@ final class Cabify_ShopTests: XCTestCase {
         let resultCountInCart = await viewModel.quantityInCart(of: expectedProduct)
         
         XCTAssertEqual(expectedCountInCart, resultCountInCart)
+    }
+    
+    func testAddProductToCart_0() async throws {
+        let expectedProduct = Product.arrange
+        let expectedCountInCart = 0
+        
+        let viewModel = await BrowseView.ViewModel()
+        await viewModel.addProductsToCart(count: expectedCountInCart, product: expectedProduct)
+        
+        let resultCountInCart = await viewModel.quantityInCart(of: expectedProduct)
+        
+        XCTAssertEqual(expectedCountInCart, resultCountInCart)
+    }
+    
+    func testSetProductToCart_3() async throws {
+        let expectedProduct = Product.arrange
+        let expectedCountInCart = 3
+        
+        let viewModel = await BrowseView.ViewModel()
+        await viewModel.setProductsInCart(count: expectedCountInCart, product: expectedProduct)
+        
+        let resultCountInCart = await viewModel.quantityInCart(of: expectedProduct)
+        
+        XCTAssertEqual(expectedCountInCart, resultCountInCart)
+    }
+    
+    func testSetProductToCart_0() async throws {
+        let expectedProduct = Product.arrange
+        let expectedCountInCart = 0
+        
+        let viewModel = await BrowseView.ViewModel()
+        await viewModel.setProductsInCart(count: expectedCountInCart, product: expectedProduct)
+        
+        let resultCountInCart = await viewModel.quantityInCart(of: expectedProduct)
+        
+        XCTAssertNil(resultCountInCart)
     }
 
 }
