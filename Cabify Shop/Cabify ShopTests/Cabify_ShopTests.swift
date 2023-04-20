@@ -7,30 +7,41 @@
 
 import XCTest
 @testable import Cabify_Shop
+@testable import ProductsService
+@testable import ProductsServiceMocks
 
 final class Cabify_ShopTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testSuccessFetchProducts() async throws {
+        let expectedProducts: [Product]? = [.arrange]
+        let mockService = MockProductsService(mockData: expectedProducts)
+        
+        let viewModel = await BrowseView.ViewModel(service: mockService)
+        await viewModel.getProducts()
+        
+        let allProducts = await viewModel.allProducts
+        XCTAssertEqual(allProducts, expectedProducts)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testEmptyProducts() async throws {
+        let expectedProducts: [Product]? = []
+        let mockService = MockProductsService(mockData: expectedProducts)
+        
+        let viewModel = await BrowseView.ViewModel(service: mockService)
+        await viewModel.getProducts()
+        
+        let allProducts = await viewModel.allProducts
+        XCTAssertEqual(allProducts, expectedProducts)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testNilProducts() async throws {
+        let mockService = MockProductsService(mockData: nil)
+        
+        let viewModel = await BrowseView.ViewModel(service: mockService)
+        await viewModel.getProducts()
+        
+        let allProducts = await viewModel.allProducts
+        XCTAssertEqual(allProducts, [Product]())
     }
 
 }
