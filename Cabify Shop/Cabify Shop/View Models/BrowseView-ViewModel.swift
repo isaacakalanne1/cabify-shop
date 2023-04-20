@@ -50,10 +50,6 @@ extension BrowseView {
             productsInCart[product] = originalCount + additionalCount
         }
         
-        func removeProductFromCart(product: Product) {
-            
-        }
-        
         func setProductsInCart(count: Int, product: Product) {
             guard count > 0 else {
                 productsInCart.removeValue(forKey: product)
