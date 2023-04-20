@@ -73,5 +73,38 @@ extension BrowseView {
         public func formattedPrice(_ value: Float) -> String {
             String(format: "$%.2f", value)
         }
+        
+        public func shouldApplyDiscount(for type: ProductType, quantity: Int) -> Bool {
+            switch type {
+            case .voucher, .tshirt:
+                return quantity >= 3
+            case .mug:
+                return false
+            }
+        }
+        
+        public func getDiscountedPrice(for product: Product, quantity: Int) -> Float {
+            switch product.type {
+            case .voucher:
+                return voucherDiscountedPrice(originalPrice: product.price, quantity: quantity)
+            case .tshirt:
+                return tshirtDiscountedPrice(originalPrice: product.price, quantity: quantity)
+            case .mug, .none:
+                return product.price * Float(quantity)
+            }
+        }
+        
+        private func voucherDiscountedPrice(originalPrice: Float, quantity originalQuantityOfVouchers: Int) -> Float {
+            let vouchersNotIncludedInDeal = originalQuantityOfVouchers % 3
+            let freeVouchers = (originalQuantityOfVouchers - vouchersNotIncludedInDeal)/3
+            let totalPaidVouchers = originalQuantityOfVouchers - freeVouchers
+            return Float(totalPaidVouchers) * originalPrice
+        }
+        
+        private func tshirtDiscountedPrice(originalPrice: Float, quantity: Int) -> Float {
+            let pricePerTshirt = quantity >= 3 ? Float(19) : originalPrice
+            let totalPrice = pricePerTshirt * Float(quantity)
+            return totalPrice
+        }
     }
 }

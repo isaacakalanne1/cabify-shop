@@ -13,7 +13,7 @@ public struct Product: Codable, Hashable {
     public let name: String
     public let price: Float
     
-    var type: ProductType? {
+    public var type: ProductType? {
         ProductType(code: code)
     }
     

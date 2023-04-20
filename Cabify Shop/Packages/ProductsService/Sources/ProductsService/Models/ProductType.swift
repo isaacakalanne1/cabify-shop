@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ProductType {
+public enum ProductType {
     case mug, tshirt, voucher
     
     public init?(code: String) {
