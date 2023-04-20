@@ -26,7 +26,7 @@ struct ProductCartView: View {
             VStack {
                 Text(product.name)
                     .frame(maxHeight: .infinity, alignment: .leading)
-                Text("\(product.formattedPrice(product.price*Float(quantity.wrappedValue)))") // TODO: Replace with PriceTextView which displays either the normal price, or the original price in strikethrough, then the discounted price in bold with the accent colour
+                Text("\(viewModel.formattedPrice(product.price*Float(quantity.wrappedValue)))") // TODO: Replace with PriceTextView which displays either the normal price, or the original price in strikethrough, then the discounted price in bold with the accent colour
                     .frame(maxHeight: .infinity, alignment: .leading)
             }
             QuantitySelectView(viewModel: viewModel, quantity: quantity)

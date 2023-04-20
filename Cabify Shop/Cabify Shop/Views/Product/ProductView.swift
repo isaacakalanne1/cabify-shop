@@ -20,7 +20,7 @@ struct ProductView: View {
         VStack(alignment: .leading) {
             ProductImage(viewModel: viewModel, product: product)
             Text(product.name)
-            Text(product.formattedPrice(product.price))
+            Text(viewModel.formattedPrice(product.price))
                 .bold()
                 .foregroundColor(.accentColor)
             HStack {

@@ -31,8 +31,4 @@ public struct Product: Codable, Hashable {
             return nil
         }
     }
-    
-    public func formattedPrice(_ value: Float) -> String {
-        String(format: "$%.2f", value)
-    }
 }

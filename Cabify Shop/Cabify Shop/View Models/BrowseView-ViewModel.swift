@@ -69,5 +69,9 @@ extension BrowseView {
         func toggleCart() {
             isShowingCart.toggle()
         }
+        
+        public func formattedPrice(_ value: Float) -> String {
+            String(format: "$%.2f", value)
+        }
     }
 }
