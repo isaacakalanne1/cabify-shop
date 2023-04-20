@@ -20,7 +20,9 @@ extension BrowseView {
         let imageSize: CGFloat = 75
         let cornerRadius: CGFloat = 10
         let shadowRadius: CGFloat = 5
-        let checkoutButtonSize: CGFloat = 26
+        var checkoutButtonSize: CGFloat {
+            26 + standardPadding
+        }
         
         @Published var isLoading = false // TODO: Update app to use isLoading (possibly an enum) to determine whether to show spinner, content, or explanation
         

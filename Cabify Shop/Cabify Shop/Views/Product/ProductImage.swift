@@ -10,8 +10,8 @@ import ProductsService
 
 struct ProductImage: View {
     
-    @StateObject var viewModel: BrowseView.ViewModel
     let product: Product
+    let size: CGFloat
     
     var body: some View {
         Group {
@@ -25,8 +25,7 @@ struct ProductImage: View {
         }
         .foregroundColor(.accentColor)
         .aspectRatio(contentMode: .fit)
-        .frame(maxWidth: .infinity,
-               maxHeight: viewModel.imageSize,
+        .frame(maxHeight: size,
                alignment: .center)
     }
     

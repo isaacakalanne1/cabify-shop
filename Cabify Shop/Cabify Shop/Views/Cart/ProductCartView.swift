@@ -22,7 +22,8 @@ struct ProductCartView: View {
         }
         
         HStack {
-            ProductImage(viewModel: viewModel, product: product)
+            ProductImage(product: product, size: viewModel.imageSize)
+                .padding(viewModel.standardPadding)
             VStack {
                 Text(product.name)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

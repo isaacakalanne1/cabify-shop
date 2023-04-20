@@ -18,15 +18,15 @@ struct ProductView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            ProductImage(viewModel: viewModel, product: product)
+            ProductImage(product: product, size: viewModel.imageSize)
+                .frame(maxWidth: .infinity)
             Text(product.name)
             Text(viewModel.formattedPrice(product.price))
                 .bold()
                 .foregroundColor(.accentColor)
             HStack {
                 QuantitySelectView(viewModel: viewModel, quantity: $quantity)
-                CircleButtonView(size: viewModel.checkoutButtonSize + viewModel.standardPadding,
-                                 type: .cart) {
+                CircleButtonView(size: viewModel.checkoutButtonSize, type: .cart) {
                     viewModel.addProductsToCart(count: quantity,
                                                 product: product)
                     quantity = 0
