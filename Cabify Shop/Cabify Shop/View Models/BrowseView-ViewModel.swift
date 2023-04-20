@@ -20,7 +20,7 @@ extension BrowseView {
         let imageSize: CGFloat = 75
         let cornerRadius: CGFloat = 10
         let shadowRadius: CGFloat = 5
-        var checkoutButtonSize: CGFloat {
+        var circleButtonSize: CGFloat {
             26 + standardPadding
         }
         

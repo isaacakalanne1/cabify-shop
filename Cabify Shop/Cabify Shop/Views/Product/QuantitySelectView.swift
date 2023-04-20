@@ -18,7 +18,7 @@ struct QuantitySelectView: View {
     
     var body: some View {
         
-        let buttonSize = viewModel.checkoutButtonSize
+        let buttonSize = viewModel.circleButtonSize
         let cornerRadius: CGFloat = (buttonSize + viewModel.standardPadding)/2
         
         HStack {

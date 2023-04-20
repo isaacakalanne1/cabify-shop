@@ -26,7 +26,7 @@ struct ProductView: View {
                 .foregroundColor(.accentColor)
             HStack {
                 QuantitySelectView(viewModel: viewModel, quantity: $quantity)
-                CircleButtonView(size: viewModel.checkoutButtonSize, type: .cart) {
+                CircleButtonView(size: viewModel.circleButtonSize, type: .cart) {
                     viewModel.addProductsToCart(count: quantity,
                                                 product: product)
                     quantity = 0
