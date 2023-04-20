@@ -1,11 +1,43 @@
+//
+//  ProductsServiceTests.swift
+//
+//
+//  Created by iakalann on 20/04/2023.
+//
+
 import XCTest
-@testable import ProductsService
+import ProductsService
+@testable import ProductsServiceMocks
 
 final class ProductsServiceTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(ProductsService().text, "Hello, World!")
+    
+    func testSuccessGetProducts() async throws {
+        
+        let expectedProducts: [Product]? = [.arrange]
+        let service = MockProductsService(mockData: expectedProducts)
+        
+        let resultProducts = await service.getProducts()
+        
+        XCTAssertEqual(resultProducts, expectedProducts)
+    }
+    
+    func testEmptyProducts() async throws {
+        
+        let expectedProducts: [Product]? = []
+        let service = MockProductsService(mockData: expectedProducts)
+        
+        let resultProducts = await service.getProducts()
+        
+        XCTAssertEqual(resultProducts, expectedProducts)
+    }
+    
+    func testNilProducts() async throws {
+        
+        let expectedProducts: [Product]? = nil
+        let service = MockProductsService(mockData: expectedProducts)
+        
+        let resultProducts = await service.getProducts()
+        
+        XCTAssertEqual(resultProducts, expectedProducts)
     }
 }

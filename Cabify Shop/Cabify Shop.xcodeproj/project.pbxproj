@@ -122,7 +122,6 @@
 				BB9F9A0229EDD44D0093C6E5 /* Cabify_ShopApp.swift */,
 				BB9F9A3029EF14260093C6E5 /* View Models */,
 				BB9F9A2F29EF14220093C6E5 /* Views */,
-				BB9F9A2E29EF141A0093C6E5 /* Models */,
 				BB9F9A0629EDD44F0093C6E5 /* Assets.xcassets */,
 				BB9F9A0829EDD44F0093C6E5 /* Preview Content */,
 			);
@@ -152,13 +151,6 @@
 				BB9F9A1F29EDD44F0093C6E5 /* Cabify_ShopUITestsLaunchTests.swift */,
 			);
 			path = "Cabify ShopUITests";
-			sourceTree = "<group>";
-		};
-		BB9F9A2E29EF141A0093C6E5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		BB9F9A2F29EF14220093C6E5 /* Views */ = {
