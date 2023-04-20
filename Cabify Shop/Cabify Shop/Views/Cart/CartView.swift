@@ -14,15 +14,15 @@ struct CartView: View {
     var body: some View {
         VStack {
             ForEach(Array(viewModel.productsInCart.keys), id: \.self) {
-                if let quantity = viewModel.quantityInCart(of: $0),
-                   quantity > 0 {
-                    ProductCartView(viewModel: viewModel,
-                                    product: $0)
-                    .frame(height: 100)
+                if viewModel.quantityInCart(of: $0) != nil {
+                    ProductCartView(viewModel: viewModel, product: $0)
+                        .frame(height: 120)
                 }
             }
             .padding(viewModel.largePadding)
         }
+        .padding(viewModel.standardPadding)
+        .frame(maxHeight: .infinity, alignment: .top)
     }
     
 }
