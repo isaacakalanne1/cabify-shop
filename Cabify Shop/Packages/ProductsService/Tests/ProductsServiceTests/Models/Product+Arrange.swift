@@ -9,11 +9,9 @@ import Foundation
 import ProductsService
 
 extension Product {
-    var arrange: [Product] {
-        return [
-            .init(code: "MUG",
-                  name: "Cabify Coffee Mug",
-                  price: 7.5)
-        ]
+    static var arrange: Product {
+        return .init(code: "MUG",
+                     name: "Cabify Coffee Mug",
+                     price: 7.5)
     }
 }
