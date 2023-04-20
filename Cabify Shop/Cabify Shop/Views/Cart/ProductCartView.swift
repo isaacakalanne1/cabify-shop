@@ -25,9 +25,9 @@ struct ProductCartView: View {
             ProductImage(viewModel: viewModel, product: product)
             VStack {
                 Text(product.name)
-                    .frame(maxHeight: .infinity, alignment: .leading)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 PriceCartView(viewModel: viewModel, quantity: quantity, product: product)
-                    .frame(maxHeight: .infinity, alignment: .leading)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             }
             .frame(maxWidth: .infinity)
             QuantitySelectView(viewModel: viewModel, quantity: quantity)
