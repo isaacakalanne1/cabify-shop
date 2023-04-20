@@ -13,10 +13,13 @@ struct CartView: View {
     
     var body: some View {
         VStack {
-            ForEach(Array(viewModel.productsInCart.keys), id: \.self) {
-                if viewModel.quantityInCart(of: $0) != nil {
-                    ProductCartView(viewModel: viewModel, product: $0)
-                        .frame(height: 120)
+            ForEach(Array(viewModel.productsInCart.keys), id: \.self) { product in
+                HStack {
+                    ProductCartView(viewModel: viewModel, product: product)
+                        .frame(maxWidth: .infinity, maxHeight: 120)
+                    RemoveFromCartButtonView(size: viewModel.checkoutButtonSize + viewModel.standardPadding) {
+                        viewModel.removeProductFromCart(product)
+                    }
                 }
             }
             .padding(viewModel.largePadding)

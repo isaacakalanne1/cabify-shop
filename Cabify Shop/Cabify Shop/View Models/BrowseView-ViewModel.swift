@@ -58,6 +58,10 @@ extension BrowseView {
             productsInCart[product] = count
         }
         
+        func removeProductFromCart(_ product: Product) {
+            setProductsInCart(count: 0, product: product)
+        }
+        
         func quantityInCart(of product: Product) -> Int? {
             return productsInCart[product]
         }
