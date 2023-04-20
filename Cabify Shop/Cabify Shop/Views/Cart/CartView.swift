@@ -21,7 +21,7 @@ struct CartView: View {
                     .frame(height: 100)
                 }
             }
-            .padding(viewModel.standardPadding)
+            .padding(viewModel.largePadding)
         }
     }
     

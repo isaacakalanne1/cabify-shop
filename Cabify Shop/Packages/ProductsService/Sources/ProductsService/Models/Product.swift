@@ -32,7 +32,7 @@ public struct Product: Codable, Hashable {
         }
     }
     
-    public var formattedPrice: String {
-        String(format: "$%.2f", self.price)
+    public func formattedPrice(_ value: Float) -> String {
+        String(format: "$%.2f", value)
     }
 }

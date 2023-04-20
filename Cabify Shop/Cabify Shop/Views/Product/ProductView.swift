@@ -20,13 +20,12 @@ struct ProductView: View {
         VStack(alignment: .leading) {
             ProductImage(viewModel: viewModel, product: product)
             Text(product.name)
-            Text(product.formattedPrice)
+            Text(product.formattedPrice(product.price))
                 .bold()
                 .foregroundColor(.accentColor)
             HStack {
                 QuantitySelectView(viewModel: viewModel, quantity: $quantity)
                 AddToCartButtonView(size: viewModel.checkoutButtonSize + viewModel.standardPadding) {
-                    guard quantity > 0 else { return }
                     viewModel.addProductsToCart(count: quantity,
                                                 product: product)
                     quantity = 0

@@ -42,6 +42,7 @@ extension BrowseView {
         }
         
         func addProductsToCart(count additionalCount: Int, product: Product) {
+            guard additionalCount > 0 else { return }
             guard let originalCount = productsInCart[product] else {
                 productsInCart[product] = additionalCount
                 return
