@@ -13,6 +13,10 @@ public struct Product: Codable, Hashable {
     public let name: String
     public let price: Float
     
+    var type: ProductType? {
+        ProductType(code: code)
+    }
+    
     public init(code: String, name: String, price: Float) {
         self.code = code
         self.name = name
@@ -20,15 +24,16 @@ public struct Product: Codable, Hashable {
     }
     
     public var imageName: String? {
-        switch code {
-        case "TSHIRT":
+        switch type {
+        case .tshirt:
             return "shirt-icon"
-        case "MUG":
+        case .mug:
             return "mug-icon"
-        case "VOUCHER":
+        case .voucher:
             return "voucher-icon"
         default:
             return nil
         }
     }
+    
 }
