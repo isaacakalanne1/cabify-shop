@@ -37,7 +37,7 @@ struct ProductView: View {
         .padding(viewModel.largePadding)
         .background(Color.white
             .cornerRadius(viewModel.cornerRadius)
-            .shadow(color: Color.gray,
+            .shadow(color: Color.black.opacity(0.25),
                     radius: viewModel.shadowRadius,
                     x: 0,
                     y: 0)
