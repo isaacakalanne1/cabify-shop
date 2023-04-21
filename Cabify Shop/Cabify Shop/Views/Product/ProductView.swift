@@ -41,6 +41,7 @@ struct ProductView: View {
                 }
                 .disabled(quantity == 0)
             }
+            .frame(height: viewModel.circleButtonSize)
         }
         .frame(maxWidth: .infinity)
         .padding(viewModel.padding.large)

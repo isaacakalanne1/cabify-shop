@@ -25,7 +25,7 @@ struct ProductImage: View {
         }
         .foregroundColor(.accentColor)
         .aspectRatio(contentMode: .fit)
-        .frame(maxHeight: size,
+        .frame(height: size,
                alignment: .center)
     }
     

@@ -21,6 +21,7 @@ struct DiscountTextView: View {
             .padding(viewModel.padding.standard)
             .background(Color.accentColor)
             .cornerRadius(viewModel.cornerRadius)
+            .fixedSize(horizontal: false, vertical: true)
     }
     
 }
