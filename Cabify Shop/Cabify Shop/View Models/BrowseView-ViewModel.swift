@@ -12,6 +12,7 @@ extension BrowseView {
     @MainActor class ViewModel: ObservableObject {
         
         let padding = Padding()
+        let opactiy = Opacity()
         let columns = [
             GridItem(.adaptive(minimum: 140))
         ]

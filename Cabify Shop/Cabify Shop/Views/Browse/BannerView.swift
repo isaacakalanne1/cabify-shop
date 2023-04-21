@@ -9,13 +9,15 @@ import SwiftUI
 
 struct BannerView: View {
     
+    @StateObject var viewModel: BrowseView.ViewModel
+    
     var body: some View {
         ZStack {
             Image("banner")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity)
-                .overlay(Color.black.opacity(0.5))
+                .overlay(Color.black.opacity(viewModel.opactiy.medium))
             Text("Choose Your Items")
                 .foregroundColor(.white)
                 .font(.largeTitle)
@@ -26,6 +28,6 @@ struct BannerView: View {
 
 struct BannerView_Previews: PreviewProvider {
     static var previews: some View {
-        BannerView()
+        BannerView(viewModel: .init())
     }
 }

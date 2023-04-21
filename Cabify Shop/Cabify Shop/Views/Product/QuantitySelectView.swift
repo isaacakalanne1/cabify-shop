@@ -25,7 +25,7 @@ struct QuantitySelectView: View {
             .cornerRadius(cornerRadius)
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(.black.opacity(0.25), lineWidth: 1)
+                    .stroke(.black.opacity(viewModel.opactiy.standard), lineWidth: 1)
             )
             .padding(viewModel.padding.standard)
     }
@@ -62,11 +62,11 @@ struct QuantitySelectView: View {
                     .frame(maxWidth: .infinity, maxHeight: 20)
             }
             Divider()
-                .background(Color.black.opacity(0.25))
+                .background(Color.black.opacity(viewModel.opactiy.standard))
             Text("\(quantity)")
                 .frame(maxWidth: .infinity, maxHeight: 20)
             Divider()
-                .background(Color.black.opacity(0.25))
+                .background(Color.black.opacity(viewModel.opactiy.standard))
             Button {
                 quantity += 1
             } label: {

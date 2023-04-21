@@ -35,6 +35,7 @@
 		BBB59E2729F2C7730047B23F /* CapsuleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2629F2C7730047B23F /* CapsuleButtonView.swift */; };
 		BBB59E2929F2CE110047B23F /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2829F2CE110047B23F /* Orientation.swift */; };
 		BBB59E2B29F2D1A30047B23F /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2A29F2D1A30047B23F /* Padding.swift */; };
+		BBB59E2D29F2D2D50047B23F /* Opacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2C29F2D2D50047B23F /* Opacity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		BBB59E2629F2C7730047B23F /* CapsuleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButtonView.swift; sourceTree = "<group>"; };
 		BBB59E2829F2CE110047B23F /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		BBB59E2A29F2D1A30047B23F /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
+		BBB59E2C29F2D2D50047B23F /* Opacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opacity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				BB9F9A2C29EF13A50093C6E5 /* BrowseView-ViewModel.swift */,
 				BBB59E2A29F2D1A30047B23F /* Padding.swift */,
+				BBB59E2C29F2D2D50047B23F /* Opacity.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				BBB59E1D29F2BCAC0047B23F /* AmountInCartView.swift in Sources */,
 				BBB59E2529F2C69E0047B23F /* EmptyCartView.swift in Sources */,
 				BBB59E1929F18E170047B23F /* CircleButtonType.swift in Sources */,
+				BBB59E2D29F2D2D50047B23F /* Opacity.swift in Sources */,
 				BBB59E0F29F070B20047B23F /* CartView.swift in Sources */,
 				BBB59E1629F18DA70047B23F /* CircleButtonView.swift in Sources */,
 				BBB59E2329F2C6660047B23F /* CartContainerView.swift in Sources */,

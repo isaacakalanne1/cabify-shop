@@ -14,7 +14,7 @@ struct BrowseView: View {
     var body: some View {
         
         VStack {
-            BannerView()
+            BannerView(viewModel: viewModel)
             ProductsGridView(viewModel: viewModel)
                 .frame(maxHeight: .infinity,
                        alignment: .top)
