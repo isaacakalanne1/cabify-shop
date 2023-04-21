@@ -18,6 +18,16 @@ struct ProductView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
+            if let discountString = viewModel.getDiscountString(for: product) {
+                Text(discountString)
+                    .font(.smallCaps(.body)())
+                    .frame(maxWidth: .infinity)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color.white)
+                    .padding(viewModel.standardPadding)
+                    .background(Color.accentColor)
+                    .cornerRadius(viewModel.cornerRadius)
+            }
             ZStack(alignment: .topTrailing) {
                 ProductImage(product: product, size: viewModel.imageSize)
                     .frame(maxWidth: .infinity)
@@ -39,6 +49,7 @@ struct ProductView: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity)
         .padding(viewModel.largePadding)
         .background(Color.white
             .cornerRadius(viewModel.cornerRadius)
