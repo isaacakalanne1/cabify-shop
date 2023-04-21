@@ -13,6 +13,7 @@ extension BrowseView {
         
         let standardPadding: CGFloat = 5
         let largePadding: CGFloat = 10
+        let extraLargePadding: CGFloat = 20
         let columns = [
             GridItem(.adaptive(minimum: 140))
         ]

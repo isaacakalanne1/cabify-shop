@@ -31,6 +31,9 @@ struct CartView: View {
             }
             .frame(maxHeight: .infinity)
             TotalCartPriceView(viewModel: viewModel)
+            CapsuleButtonView(viewModel: viewModel, titleString: "Proceed to Checkout") {
+                
+            }
         }
         .padding(viewModel.standardPadding)
         .frame(maxHeight: .infinity, alignment: .top)

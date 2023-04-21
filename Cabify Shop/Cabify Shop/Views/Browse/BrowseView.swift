@@ -18,7 +18,7 @@ struct BrowseView: View {
             ProductsGridView(viewModel: viewModel)
                 .frame(maxHeight: .infinity,
                        alignment: .top)
-            ViewCartButtonView {
+            CapsuleButtonView(viewModel: viewModel, titleString: "View Your Cart") {
                 viewModel.toggleCart()
             }
         }
@@ -30,7 +30,7 @@ struct BrowseView: View {
                alignment: .top)
         .sheet(isPresented: $viewModel.isShowingCart) {
             CartContainerView(viewModel: viewModel)
-                .presentationDetents([.medium, .large])
+                .presentationDetents([.fraction(0.7)])
         }
     }
 }
