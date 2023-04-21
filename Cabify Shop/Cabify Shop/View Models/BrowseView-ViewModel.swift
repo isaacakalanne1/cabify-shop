@@ -89,17 +89,28 @@ extension BrowseView {
             }
         }
         
-        public func getDiscountString(for product: Product) -> String? {
-            var discountString: String
+        private func getDiscount(for product: Product) -> Discount? {
             switch product.type {
             case .voucher:
-                discountString = "2 for 1!"
+                return .twoForOne
             case .tshirt:
-                discountString = "19€ each when you buy 3 or more!"
+                return .reducedTo(19, amountToBuy: 3)
             case .mug, .none:
                 return nil
             }
-            return discountString.uppercased()
+        }
+        
+        public func getDiscountString(for product: Product) -> String? {
+            guard let discount = getDiscount(for: product) else { return nil }
+            
+            var discountString: String?
+            switch discount {
+            case .twoForOne:
+                discountString = "2 for 1!"
+            case .reducedTo(let price, let amountToBuy):
+                discountString = "\(formattedPrice(price)) each when you buy \(amountToBuy) or more!"
+            }
+            return discountString
         }
         
         public func getDiscountedPrice(for product: Product, quantity: Int) -> Float {

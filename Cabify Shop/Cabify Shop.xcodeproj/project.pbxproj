@@ -36,6 +36,7 @@
 		BBB59E2929F2CE110047B23F /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2829F2CE110047B23F /* Orientation.swift */; };
 		BBB59E2B29F2D1A30047B23F /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2A29F2D1A30047B23F /* Padding.swift */; };
 		BBB59E2D29F2D2D50047B23F /* Opacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2C29F2D2D50047B23F /* Opacity.swift */; };
+		BBB59E2F29F2D5F00047B23F /* Discont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2E29F2D5EF0047B23F /* Discont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		BBB59E2829F2CE110047B23F /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		BBB59E2A29F2D1A30047B23F /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
 		BBB59E2C29F2D2D50047B23F /* Opacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opacity.swift; sourceTree = "<group>"; };
+		BBB59E2E29F2D5EF0047B23F /* Discont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +264,7 @@
 			children = (
 				BBB59E1829F18E170047B23F /* CircleButtonType.swift */,
 				BBB59E2829F2CE110047B23F /* Orientation.swift */,
+				BBB59E2E29F2D5EF0047B23F /* Discont.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				BB9F9A4029EF27D20093C6E5 /* ProductsGridView.swift in Sources */,
 				BBB59E2B29F2D1A30047B23F /* Padding.swift in Sources */,
 				BB9F9A2D29EF13A50093C6E5 /* BrowseView-ViewModel.swift in Sources */,
+				BBB59E2F29F2D5F00047B23F /* Discont.swift in Sources */,
 				BBB59E2929F2CE110047B23F /* Orientation.swift in Sources */,
 				BBB59E2129F2C3A50047B23F /* TotalCartPriceView.swift in Sources */,
 				BB9F9A3E29EF278E0093C6E5 /* BannerView.swift in Sources */,

@@ -14,7 +14,7 @@ struct DiscountTextView: View {
     
     var body: some View {
         Text(discountString)
-            .font(.caption)
+            .font(.smallCaps(.caption)())
             .frame(maxWidth: .infinity)
             .multilineTextAlignment(.center)
             .foregroundColor(Color.white)
