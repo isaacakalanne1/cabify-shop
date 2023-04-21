@@ -13,6 +13,8 @@ struct CartView: View {
     
     var body: some View {
         VStack {
+            TotalItemsView(viewModel: viewModel)
+                .padding(.top, viewModel.largePadding)
             ForEach(Array(viewModel.productsInCart.keys), id: \.self) { product in
                 HStack {
                     ProductCartView(viewModel: viewModel, product: product)

@@ -27,6 +27,7 @@
 		BBB59E1129F17F5D0047B23F /* PriceCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1029F17F5D0047B23F /* PriceCartView.swift */; };
 		BBB59E1629F18DA70047B23F /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1529F18DA70047B23F /* CircleButtonView.swift */; };
 		BBB59E1929F18E170047B23F /* CircleButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1829F18E170047B23F /* CircleButtonType.swift */; };
+		BBB59E1B29F2BA140047B23F /* TotalItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1A29F2BA140047B23F /* TotalItemsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		BBB59E1029F17F5D0047B23F /* PriceCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCartView.swift; sourceTree = "<group>"; };
 		BBB59E1529F18DA70047B23F /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		BBB59E1829F18E170047B23F /* CircleButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonType.swift; sourceTree = "<group>"; };
+		BBB59E1A29F2BA140047B23F /* TotalItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalItemsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				BBB59E0C29F06D9F0047B23F /* ProductCartView.swift */,
 				BBB59E0E29F070B20047B23F /* CartView.swift */,
 				BBB59E1029F17F5D0047B23F /* PriceCartView.swift */,
+				BBB59E1A29F2BA140047B23F /* TotalItemsView.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				BB9F9A3E29EF278E0093C6E5 /* BannerView.swift in Sources */,
 				BB9F9A3629EF14910093C6E5 /* ProductView.swift in Sources */,
 				BB9F9A0329EDD44D0093C6E5 /* Cabify_ShopApp.swift in Sources */,
+				BBB59E1B29F2BA140047B23F /* TotalItemsView.swift in Sources */,
 				BBB59E0D29F06D9F0047B23F /* ProductCartView.swift in Sources */,
 				BB9F9A3829EF17ED0093C6E5 /* QuantitySelectView.swift in Sources */,
 				BBB59E1129F17F5D0047B23F /* PriceCartView.swift in Sources */,
