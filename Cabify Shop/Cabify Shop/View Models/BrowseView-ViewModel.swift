@@ -80,6 +80,16 @@ extension BrowseView {
             String(format: "%.2f€", value)
         }
         
+        public func getTotalPriceOfCart() -> Float {
+            var totalPrice = Float(0)
+            for product in productsInCart.keys {
+                guard let quantity = productsInCart[product] else { continue }
+                let price = getDiscountedPrice(for: product, quantity: quantity)
+                totalPrice += price
+            }
+            return totalPrice
+        }
+        
         public func shouldApplyDiscount(for type: ProductType, quantity: Int) -> Bool {
             switch type {
             case .voucher, .tshirt:

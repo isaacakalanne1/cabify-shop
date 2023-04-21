@@ -35,7 +35,9 @@ struct CartView: View {
                 viewModel.isShowingOrderConfirmedAlert.toggle()
             }
             .alert(isPresented: $viewModel.isShowingOrderConfirmedAlert) {
-                Alert(title: Text("Order Confirmed"),
+                let totalPrice = viewModel.getTotalPriceOfCart()
+                let formattedPrice = viewModel.formattedPrice(totalPrice)
+                return Alert(title: Text("Order Confirmed for \(formattedPrice)"),
                       message: Text("Thank you for your purchase!"),
                       dismissButton: .default(Text("OK!")) {
                     viewModel.emptyCart()
