@@ -29,7 +29,7 @@ struct CircleButtonView: View {
                 .foregroundColor(.accentColor)
                 .frame(width: size, height: size)
         }
-        .accessibilityIdentifier("\(type.iconName)\(product.code)CircleButton")
+        .accessibilityIdentifier(AccessibilityIdentifier.circleButton(type: type, product: product))
     }
     
 }

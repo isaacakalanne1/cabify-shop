@@ -20,4 +20,7 @@ public struct AccessibilityIdentifier {
         return "\(orientation.rawValue)\(product.code)AddQuantityButton"
     }
     static public let orderConfirmedOKButton = "orderConfirmedOKButton"
+    static public func circleButton(type: CircleButtonType, product: Product) -> String {
+        return "\(type.iconName)\(product.code)CircleButton"
+    }
 }
