@@ -29,8 +29,8 @@ struct BrowseView: View {
                maxHeight: .infinity,
                alignment: .top)
         .sheet(isPresented: $viewModel.isShowingCart) {
-            CartView(viewModel: viewModel)
-            .presentationDetents([.medium, .large])
+            CartContainerView(viewModel: viewModel)
+                .presentationDetents([.medium, .large])
         }
     }
 }
