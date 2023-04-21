@@ -32,7 +32,14 @@ struct CartView: View {
             .frame(maxHeight: .infinity)
             TotalCartPriceView(viewModel: viewModel)
             CapsuleButtonView(viewModel: viewModel, titleString: "Proceed to Checkout") {
-                
+                viewModel.isShowingOrderConfirmedAlert.toggle()
+            }
+            .alert(isPresented: $viewModel.isShowingOrderConfirmedAlert) {
+                Alert(title: Text("Order Confirmed"),
+                      message: Text("Thank you for your purchase!"),
+                      dismissButton: .default(Text("OK!")) {
+                    viewModel.emptyCart()
+                })
             }
         }
         .padding(viewModel.standardPadding)

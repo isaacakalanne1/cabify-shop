@@ -30,6 +30,7 @@ extension BrowseView {
         @Published var allProducts = [Product]()
         @Published var productsInCart = [Product: Int]()
         @Published var isShowingCart = false
+        @Published var isShowingOrderConfirmedAlert = false
         let service: ServiceProtocol
         
         init(service: ServiceProtocol = ProductsService()) {
@@ -63,6 +64,10 @@ extension BrowseView {
         
         func removeProductFromCart(_ product: Product) {
             setProductsInCart(count: 0, product: product)
+        }
+        
+        func emptyCart() {
+            productsInCart = [:]
         }
         
         func quantityInCart(of product: Product) -> Int? {
