@@ -73,7 +73,7 @@ extension BrowseView {
         }
         
         public func formattedPrice(_ value: Float) -> String {
-            String(format: "$%.2f", value)
+            String(format: "%.2f€", value)
         }
         
         public func shouldApplyDiscount(for type: ProductType, quantity: Int) -> Bool {
