@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum Orientation {
+public enum Orientation: String {
     case horizontal, vertical
 }

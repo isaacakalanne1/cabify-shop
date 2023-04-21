@@ -9,7 +9,7 @@ import Foundation
 
 public struct Product: Codable, Hashable {
     
-    let code: String
+    public let code: String
     public let name: String
     public let price: Float
     
