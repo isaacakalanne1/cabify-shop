@@ -23,7 +23,7 @@ struct ProductCartView: View {
         
         HStack {
             ProductImage(product: product, size: viewModel.imageSize)
-                .padding(viewModel.standardPadding)
+                .padding(viewModel.padding.standard)
             VStack {
                 Text(product.name)
                     .lineLimit(0)
@@ -34,7 +34,7 @@ struct ProductCartView: View {
             .frame(maxWidth: .infinity)
             QuantitySelectView(viewModel: viewModel, quantity: quantity, orientation: .vertical)
         }
-        .padding(viewModel.standardPadding)
+        .padding(viewModel.padding.standard)
         .background(Color.white
             .cornerRadius(viewModel.cornerRadius)
             .shadow(color: Color.black.opacity(0.25),

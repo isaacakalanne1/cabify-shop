@@ -19,7 +19,7 @@ struct CapsuleButtonView: View {
         } label: {
             Text(titleString)
                 .foregroundColor(Color.white)
-                .padding(viewModel.extraLargePadding)
+                .padding(viewModel.padding.extraLarge)
                 .background(Color.accentColor)
                 .clipShape(Capsule())
         }

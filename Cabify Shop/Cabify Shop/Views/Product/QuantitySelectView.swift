@@ -19,15 +19,15 @@ struct QuantitySelectView: View {
     
     var body: some View {
         
-        let cornerRadius: CGFloat = (viewModel.circleButtonSize + viewModel.standardPadding)/2
+        let cornerRadius: CGFloat = (viewModel.circleButtonSize + viewModel.padding.standard)/2
         stackView
-            .padding(viewModel.standardPadding)
+            .padding(viewModel.padding.standard)
             .cornerRadius(cornerRadius)
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(.black.opacity(0.25), lineWidth: 1)
             )
-            .padding(viewModel.standardPadding)
+            .padding(viewModel.padding.standard)
     }
     
     var stackView: some View {

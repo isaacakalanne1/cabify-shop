@@ -14,7 +14,7 @@ struct CartView: View {
     var body: some View {
         VStack {
             TotalItemsView(viewModel: viewModel)
-                .padding(.top, viewModel.largePadding)
+                .padding(.top, viewModel.padding.large)
             ScrollView {
                 VStack {
                     ForEach(Array(viewModel.productsInCart.keys), id: \.self) { product in
@@ -26,7 +26,7 @@ struct CartView: View {
                             }
                         }
                     }
-                    .padding(viewModel.largePadding)
+                    .padding(viewModel.padding.large)
                 }
             }
             .frame(maxHeight: .infinity)
@@ -42,7 +42,7 @@ struct CartView: View {
                 })
             }
         }
-        .padding(viewModel.standardPadding)
+        .padding(viewModel.padding.standard)
         .frame(maxHeight: .infinity, alignment: .top)
     }
     

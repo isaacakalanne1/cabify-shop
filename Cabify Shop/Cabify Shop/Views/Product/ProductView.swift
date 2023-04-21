@@ -44,7 +44,7 @@ struct ProductView: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(viewModel.largePadding)
+        .padding(viewModel.padding.large)
         .background(Color.white
             .cornerRadius(viewModel.cornerRadius)
             .shadow(color: Color.black.opacity(0.25),

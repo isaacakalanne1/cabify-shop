@@ -16,9 +16,9 @@ struct EmptyCartView: View {
             Text("Your cart is empty")
                 .bold()
                 .foregroundColor(.accentColor)
-                .padding(viewModel.standardPadding)
+                .padding(viewModel.padding.standard)
             Text("Grab some items!")
-                .padding(viewModel.standardPadding)
+                .padding(viewModel.padding.standard)
         }
     }
     

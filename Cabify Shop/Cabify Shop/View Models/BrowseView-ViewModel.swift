@@ -11,9 +11,7 @@ import ProductsService
 extension BrowseView {
     @MainActor class ViewModel: ObservableObject {
         
-        let standardPadding: CGFloat = 5
-        let largePadding: CGFloat = 10
-        let extraLargePadding: CGFloat = 20
+        let padding = Padding()
         let columns = [
             GridItem(.adaptive(minimum: 140))
         ]
@@ -22,7 +20,7 @@ extension BrowseView {
         let cornerRadius: CGFloat = 10
         let shadowRadius: CGFloat = 5
         var circleButtonSize: CGFloat {
-            26 + standardPadding
+            26 + padding.standard
         }
         
         @Published var isLoading = false // TODO: Update app to use isLoading (possibly an enum) to determine whether to show spinner, content, or explanation

@@ -18,7 +18,7 @@ struct DiscountTextView: View {
             .frame(maxWidth: .infinity)
             .multilineTextAlignment(.center)
             .foregroundColor(Color.white)
-            .padding(viewModel.standardPadding)
+            .padding(viewModel.padding.standard)
             .background(Color.accentColor)
             .cornerRadius(viewModel.cornerRadius)
     }

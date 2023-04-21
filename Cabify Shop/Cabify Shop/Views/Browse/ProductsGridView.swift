@@ -16,7 +16,7 @@ struct ProductsGridView: View {
             ForEach(viewModel.allProducts, id: \.self) { product in
                 ProductView(viewModel: viewModel, product: product)
             }
-            .padding(viewModel.largePadding)
+            .padding(viewModel.padding.large)
         }
     }
     
