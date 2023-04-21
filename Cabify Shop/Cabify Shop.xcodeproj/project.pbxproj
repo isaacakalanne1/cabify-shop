@@ -33,6 +33,7 @@
 		BBB59E2329F2C6660047B23F /* CartContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2229F2C6660047B23F /* CartContainerView.swift */; };
 		BBB59E2529F2C69E0047B23F /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2429F2C69E0047B23F /* EmptyCartView.swift */; };
 		BBB59E2729F2C7730047B23F /* CapsuleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2629F2C7730047B23F /* CapsuleButtonView.swift */; };
+		BBB59E2929F2CE110047B23F /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2829F2CE110047B23F /* Orientation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		BBB59E2229F2C6660047B23F /* CartContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartContainerView.swift; sourceTree = "<group>"; };
 		BBB59E2429F2C69E0047B23F /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		BBB59E2629F2C7730047B23F /* CapsuleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButtonView.swift; sourceTree = "<group>"; };
+		BBB59E2829F2CE110047B23F /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB59E1829F18E170047B23F /* CircleButtonType.swift */,
+				BBB59E2829F2CE110047B23F /* Orientation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				BB9F9A0529EDD44D0093C6E5 /* BrowseView.swift in Sources */,
 				BB9F9A4029EF27D20093C6E5 /* ProductsGridView.swift in Sources */,
 				BB9F9A2D29EF13A50093C6E5 /* BrowseView-ViewModel.swift in Sources */,
+				BBB59E2929F2CE110047B23F /* Orientation.swift in Sources */,
 				BBB59E2129F2C3A50047B23F /* TotalCartPriceView.swift in Sources */,
 				BB9F9A3E29EF278E0093C6E5 /* BannerView.swift in Sources */,
 				BB9F9A3629EF14910093C6E5 /* ProductView.swift in Sources */,
