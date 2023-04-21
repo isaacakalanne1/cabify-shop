@@ -18,11 +18,11 @@ final class Cabify_ShopUITests: XCTestCase {
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         viewYourCartButton.tap()
         
-        let emptyCartView = app.buttons["proceedToCheckoutButton"]
-        XCTAssertFalse(emptyCartView.waitForExistence(timeout: TimeInterval(timeout)))
+        let proceedToCheckoutButton = app.buttons["proceedToCheckoutButton"]
+        XCTAssertFalse(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
     }
     
-    func testViewYourCart_Add1MugToCart() throws {
+    func testBuy1Mug() throws {
         let app = XCUIApplication()
         app.launch()
 
@@ -41,11 +41,21 @@ final class Cabify_ShopUITests: XCTestCase {
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         viewYourCartButton.tap()
         
-        let emptyCartView = app.buttons["proceedToCheckoutButton"]
-        XCTAssertTrue(emptyCartView.waitForExistence(timeout: TimeInterval(timeout)))
+        let priceText = app.staticTexts["\(productString)NoDiscountPriceText"]
+        XCTAssertTrue(priceText.waitForExistence(timeout: TimeInterval(timeout)))
+        
+        let proceedToCheckoutButton = app.buttons["proceedToCheckoutButton"]
+        XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
+        proceedToCheckoutButton.tap()
+        
+        let orderConfirmedOKButton = app.buttons["orderConfirmedOKButton"]
+        XCTAssertTrue(orderConfirmedOKButton.waitForExistence(timeout: TimeInterval(timeout)))
+        orderConfirmedOKButton.tap()
+        
+        XCTAssertFalse(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
     }
     
-    func testViewYourCart_Add2VouchersToCart() throws {
+    func testBuy2Vouchers() throws {
         let app = XCUIApplication()
         app.launch()
 
@@ -64,15 +74,22 @@ final class Cabify_ShopUITests: XCTestCase {
         let viewYourCartButton = app.buttons["viewYourCartButton"]
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         viewYourCartButton.tap()
-        
-        let emptyCartView = app.buttons["proceedToCheckoutButton"]
-        XCTAssertTrue(emptyCartView.waitForExistence(timeout: TimeInterval(timeout)))
         
         let priceText = app.staticTexts["\(productString)NoDiscountPriceText"]
         XCTAssertTrue(priceText.waitForExistence(timeout: TimeInterval(timeout)))
+        
+        let proceedToCheckoutButton = app.buttons["proceedToCheckoutButton"]
+        XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
+        proceedToCheckoutButton.tap()
+        
+        let orderConfirmedOKButton = app.buttons["orderConfirmedOKButton"]
+        XCTAssertTrue(orderConfirmedOKButton.waitForExistence(timeout: TimeInterval(timeout)))
+        orderConfirmedOKButton.tap()
+        
+        XCTAssertFalse(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
     }
     
-    func testViewYourCart_Add5VouchersToCart() throws {
+    func testViewYourCart_Buy5Vouchers() throws {
         let app = XCUIApplication()
         app.launch()
 
@@ -95,10 +112,17 @@ final class Cabify_ShopUITests: XCTestCase {
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         viewYourCartButton.tap()
         
-        let emptyCartView = app.buttons["proceedToCheckoutButton"]
-        XCTAssertTrue(emptyCartView.waitForExistence(timeout: TimeInterval(timeout)))
-        
         let priceText = app.staticTexts["\(productString)DiscountPriceText"]
         XCTAssertTrue(priceText.waitForExistence(timeout: TimeInterval(timeout)))
+        
+        let proceedToCheckoutButton = app.buttons["proceedToCheckoutButton"]
+        XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
+        proceedToCheckoutButton.tap()
+        
+        let orderConfirmedOKButton = app.buttons["orderConfirmedOKButton"]
+        XCTAssertTrue(orderConfirmedOKButton.waitForExistence(timeout: TimeInterval(timeout)))
+        orderConfirmedOKButton.tap()
+        
+        XCTAssertFalse(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
     }
 }

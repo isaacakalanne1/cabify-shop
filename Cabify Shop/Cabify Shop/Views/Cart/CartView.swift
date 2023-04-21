@@ -13,6 +13,8 @@ struct CartView: View {
     
     var body: some View {
         VStack {
+            let totalPrice = viewModel.getTotalPriceOfCart()
+            let formattedPrice = viewModel.formattedPrice(totalPrice)
             TotalItemsView(viewModel: viewModel)
                 .padding(.top, viewModel.padding.large)
             ScrollView {
@@ -37,15 +39,19 @@ struct CartView: View {
                 viewModel.isShowingOrderConfirmedAlert.toggle()
             }
             .accessibilityIdentifier("proceedToCheckoutButton")
-            .alert(isPresented: $viewModel.isShowingOrderConfirmedAlert) {
-                let totalPrice = viewModel.getTotalPriceOfCart()
-                let formattedPrice = viewModel.formattedPrice(totalPrice)
-                return Alert(title: Text("Order Confirmed for \(formattedPrice)"),
-                      message: Text("Thank you for your purchase!"),
-                      dismissButton: .default(Text("OK!")) {
+            .alert("Order Confirmed for \(formattedPrice)", isPresented: $viewModel.isShowingOrderConfirmedAlert, actions: { // 2
+
+                // 3
+                Button("OK", role: .cancel, action: {
                     viewModel.emptyCart()
                 })
-            }
+                .accessibilityIdentifier(AccessibilityIdentifier.orderConfirmedOKButton)
+
+            }, message: {
+                // 4
+                Text("Thank you for your purchase!")
+
+            })
         }
         .padding(viewModel.padding.standard)
         .frame(maxHeight: .infinity, alignment: .top)
