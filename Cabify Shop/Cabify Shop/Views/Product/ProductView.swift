@@ -40,6 +40,7 @@ struct ProductView: View {
                     quantity = 0
                     print(viewModel.productsInCart)
                 }
+                .disabled(quantity == 0)
             }
         }
         .frame(maxWidth: .infinity)
