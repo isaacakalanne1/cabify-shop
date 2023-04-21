@@ -29,6 +29,7 @@
 		BBB59E1929F18E170047B23F /* CircleButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1829F18E170047B23F /* CircleButtonType.swift */; };
 		BBB59E1B29F2BA140047B23F /* TotalItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1A29F2BA140047B23F /* TotalItemsView.swift */; };
 		BBB59E1D29F2BCAC0047B23F /* AmountInCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1C29F2BCAC0047B23F /* AmountInCartView.swift */; };
+		BBB59E1F29F2C18B0047B23F /* DiscountTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1E29F2C18B0047B23F /* DiscountTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		BBB59E1829F18E170047B23F /* CircleButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonType.swift; sourceTree = "<group>"; };
 		BBB59E1A29F2BA140047B23F /* TotalItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalItemsView.swift; sourceTree = "<group>"; };
 		BBB59E1C29F2BCAC0047B23F /* AmountInCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountInCartView.swift; sourceTree = "<group>"; };
+		BBB59E1E29F2C18B0047B23F /* DiscountTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				BB9F9A3529EF14910093C6E5 /* ProductView.swift */,
 				BB9F9A3729EF17ED0093C6E5 /* QuantitySelectView.swift */,
 				BBB59E1C29F2BCAC0047B23F /* AmountInCartView.swift */,
+				BBB59E1E29F2C18B0047B23F /* DiscountTextView.swift */,
 				BB9F9A4229EF29A60093C6E5 /* ProductImage.swift */,
 			);
 			path = Product;
@@ -393,6 +396,7 @@
 				BBB59E1B29F2BA140047B23F /* TotalItemsView.swift in Sources */,
 				BBB59E0D29F06D9F0047B23F /* ProductCartView.swift in Sources */,
 				BB9F9A3829EF17ED0093C6E5 /* QuantitySelectView.swift in Sources */,
+				BBB59E1F29F2C18B0047B23F /* DiscountTextView.swift in Sources */,
 				BBB59E1129F17F5D0047B23F /* PriceCartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
