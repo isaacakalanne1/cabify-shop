@@ -38,7 +38,6 @@ struct ProductView: View {
                     viewModel.addProductsToCart(count: quantity,
                                                 product: product)
                     quantity = 0
-                    print(viewModel.productsInCart)
                 }
                 .disabled(quantity == 0)
             }

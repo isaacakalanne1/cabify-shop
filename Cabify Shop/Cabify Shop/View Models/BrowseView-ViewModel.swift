@@ -37,7 +37,6 @@ extension BrowseView {
         
         func getProducts() async {
             guard let productsList = await service.getProducts() else {
-                print("Nah!")
                 return
             }
             allProducts = productsList
