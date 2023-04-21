@@ -26,6 +26,7 @@ struct ProductCartView: View {
                 .padding(viewModel.standardPadding)
             VStack {
                 Text(product.name)
+                    .lineLimit(0)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 PriceCartView(viewModel: viewModel, quantity: quantity, product: product)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

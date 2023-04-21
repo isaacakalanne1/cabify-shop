@@ -30,6 +30,7 @@
 		BBB59E1B29F2BA140047B23F /* TotalItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1A29F2BA140047B23F /* TotalItemsView.swift */; };
 		BBB59E1D29F2BCAC0047B23F /* AmountInCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1C29F2BCAC0047B23F /* AmountInCartView.swift */; };
 		BBB59E1F29F2C18B0047B23F /* DiscountTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E1E29F2C18B0047B23F /* DiscountTextView.swift */; };
+		BBB59E2129F2C3A50047B23F /* TotalCartPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB59E2029F2C3A50047B23F /* TotalCartPriceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		BBB59E1A29F2BA140047B23F /* TotalItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalItemsView.swift; sourceTree = "<group>"; };
 		BBB59E1C29F2BCAC0047B23F /* AmountInCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountInCartView.swift; sourceTree = "<group>"; };
 		BBB59E1E29F2C18B0047B23F /* DiscountTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountTextView.swift; sourceTree = "<group>"; };
+		BBB59E2029F2C3A50047B23F /* TotalCartPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCartPriceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				BBB59E0C29F06D9F0047B23F /* ProductCartView.swift */,
 				BBB59E0E29F070B20047B23F /* CartView.swift */,
 				BBB59E1029F17F5D0047B23F /* PriceCartView.swift */,
+				BBB59E2029F2C3A50047B23F /* TotalCartPriceView.swift */,
 				BBB59E1A29F2BA140047B23F /* TotalItemsView.swift */,
 			);
 			path = Cart;
@@ -390,6 +393,7 @@
 				BB9F9A4029EF27D20093C6E5 /* ProductsGridView.swift in Sources */,
 				BB9F9A2D29EF13A50093C6E5 /* BrowseView-ViewModel.swift in Sources */,
 				BBB59E0A29F069CE0047B23F /* ViewCartButtonView.swift in Sources */,
+				BBB59E2129F2C3A50047B23F /* TotalCartPriceView.swift in Sources */,
 				BB9F9A3E29EF278E0093C6E5 /* BannerView.swift in Sources */,
 				BB9F9A3629EF14910093C6E5 /* ProductView.swift in Sources */,
 				BB9F9A0329EDD44D0093C6E5 /* Cabify_ShopApp.swift in Sources */,
