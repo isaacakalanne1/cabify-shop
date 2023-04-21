@@ -18,8 +18,13 @@ struct ProductView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            ProductImage(product: product, size: viewModel.imageSize)
-                .frame(maxWidth: .infinity)
+            ZStack(alignment: .topTrailing) {
+                ProductImage(product: product, size: viewModel.imageSize)
+                    .frame(maxWidth: .infinity)
+                if let amountInCart = viewModel.productsInCart[product] {
+                    AmountInCartView(viewModel: viewModel, amountInCart: amountInCart)
+                }
+            }
             Text(product.name)
             Text(viewModel.formattedPrice(product.price))
                 .bold()
