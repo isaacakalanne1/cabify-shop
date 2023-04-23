@@ -39,18 +39,15 @@ struct CartView: View {
                 viewModel.isShowingOrderConfirmedAlert.toggle()
             }
             .accessibilityIdentifier("proceedToCheckoutButton")
-            .alert("Order Confirmed for \(formattedPrice)", isPresented: $viewModel.isShowingOrderConfirmedAlert, actions: { // 2
+            .alert("Order Confirmed for \(formattedPrice)", isPresented: $viewModel.isShowingOrderConfirmedAlert, actions: {
 
-                // 3
                 Button("OK", role: .cancel, action: {
                     viewModel.emptyCart()
                 })
                 .accessibilityIdentifier(AccessibilityIdentifier.orderConfirmedOKButton)
 
             }, message: {
-                // 4
                 Text("Thank you for your purchase!")
-
             })
         }
         .padding(viewModel.padding.standard)
