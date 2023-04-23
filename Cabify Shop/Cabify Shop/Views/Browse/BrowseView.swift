@@ -21,6 +21,7 @@ struct BrowseView: View {
             CapsuleButtonView(viewModel: viewModel, titleString: "View Your Cart") {
                 viewModel.toggleCart()
             }
+            .accessibilityIdentifier(AccessibilityIdentifier.viewYourCartButton)
         }
         .task {
             await viewModel.getProducts()

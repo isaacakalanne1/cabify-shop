@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import ProductsService
 
 struct CircleButtonView: View {
     
     let size: CGFloat
     let type: CircleButtonType
+    let product: Product
     
     private var imageIconName: String {
         type.iconName + ".circle.fill"
@@ -27,6 +29,7 @@ struct CircleButtonView: View {
                 .foregroundColor(.accentColor)
                 .frame(width: size, height: size)
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.circleButton(type: type, product: product))
     }
     
 }

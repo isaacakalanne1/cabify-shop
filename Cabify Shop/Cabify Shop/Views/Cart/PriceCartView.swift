@@ -26,9 +26,11 @@ struct PriceCartView: View {
                 Text("\(viewModel.formattedPrice(discountedPrice))")
                     .bold()
                     .foregroundColor(.accentColor)
+                    .accessibilityIdentifier(AccessibilityIdentifier.discountPriceText(product: product))
             }
         } else {
             Text("\(viewModel.formattedPrice(originalPrice))")
+                .accessibilityIdentifier(AccessibilityIdentifier.noDiscountPriceText(product: product))
         }
     }
     

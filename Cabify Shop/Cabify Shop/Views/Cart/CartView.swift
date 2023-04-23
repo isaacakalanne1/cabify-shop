@@ -13,6 +13,8 @@ struct CartView: View {
     
     var body: some View {
         VStack {
+            let totalPrice = viewModel.getTotalPriceOfCart()
+            let formattedPrice = viewModel.formattedPrice(totalPrice)
             TotalItemsView(viewModel: viewModel)
                 .padding(.top, viewModel.padding.large)
             ScrollView {
@@ -21,7 +23,9 @@ struct CartView: View {
                         HStack {
                             ProductCartView(viewModel: viewModel, product: product)
                                 .frame(maxWidth: .infinity, maxHeight: 110)
-                            CircleButtonView(size: viewModel.circleButtonSize, type: .trash) {
+                            CircleButtonView(size: viewModel.circleButtonSize,
+                                             type: .trash,
+                                             product: product) {
                                 viewModel.removeProductFromCart(product)
                             }
                         }
@@ -34,15 +38,17 @@ struct CartView: View {
             CapsuleButtonView(viewModel: viewModel, titleString: "Proceed to Checkout") {
                 viewModel.isShowingOrderConfirmedAlert.toggle()
             }
-            .alert(isPresented: $viewModel.isShowingOrderConfirmedAlert) {
-                let totalPrice = viewModel.getTotalPriceOfCart()
-                let formattedPrice = viewModel.formattedPrice(totalPrice)
-                return Alert(title: Text("Order Confirmed for \(formattedPrice)"),
-                      message: Text("Thank you for your purchase!"),
-                      dismissButton: .default(Text("OK!")) {
+            .accessibilityIdentifier(AccessibilityIdentifier.proceedToCheckoutButton)
+            .alert("Order Confirmed for \(formattedPrice)", isPresented: $viewModel.isShowingOrderConfirmedAlert, actions: {
+
+                Button("OK", role: .cancel, action: {
                     viewModel.emptyCart()
                 })
-            }
+                .accessibilityIdentifier(AccessibilityIdentifier.orderConfirmedOKButton)
+
+            }, message: {
+                Text("Thank you for your purchase!")
+            })
         }
         .padding(viewModel.padding.standard)
         .frame(maxHeight: .infinity, alignment: .top)

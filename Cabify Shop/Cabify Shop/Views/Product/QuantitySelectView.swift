@@ -13,6 +13,7 @@ struct QuantitySelectView: View {
     @StateObject var viewModel: BrowseView.ViewModel
     @Binding var quantity: Int
     let orientation: Orientation
+    let product: Product
     
     private let subtractString = "-"
     private let addString = "+"
@@ -61,6 +62,8 @@ struct QuantitySelectView: View {
                     .foregroundColor(Color.black)
                     .frame(maxWidth: .infinity, maxHeight: 20)
             }
+            .accessibilityIdentifier(AccessibilityIdentifier.subtractQuantityButton(orientation: orientation,
+                                                                                    product: product))
             Divider()
                 .background(Color.black.opacity(viewModel.opactiy.standard))
             Text("\(quantity)")
@@ -75,6 +78,8 @@ struct QuantitySelectView: View {
                     .foregroundColor(Color.black)
                     .frame(maxWidth: .infinity, maxHeight: 20)
             }
+            .accessibilityIdentifier(AccessibilityIdentifier.addQuantityButton(orientation: orientation,
+                                                                               product: product))
         }
     }
     
@@ -89,6 +94,11 @@ struct QuantitySelectView_Previews: PreviewProvider {
             
         }
         
-        QuantitySelectView(viewModel: .init(), quantity: quantity, orientation: .horizontal)
+        QuantitySelectView(viewModel: .init(),
+                           quantity: quantity,
+                           orientation: .horizontal,
+                           product: .init(code: "MUG",
+                                          name: "Cabify Mug",
+                                          price: 7.5))
     }
 }

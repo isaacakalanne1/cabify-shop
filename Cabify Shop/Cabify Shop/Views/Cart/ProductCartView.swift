@@ -32,7 +32,10 @@ struct ProductCartView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             }
             .frame(maxWidth: .infinity)
-            QuantitySelectView(viewModel: viewModel, quantity: quantity, orientation: .vertical)
+            QuantitySelectView(viewModel: viewModel,
+                               quantity: quantity,
+                               orientation: .vertical,
+                               product: product)
         }
         .padding(viewModel.padding.standard)
         .background(Color.white

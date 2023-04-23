@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CircleButtonType: String {
+public enum CircleButtonType: String {
     case cart, trash
     
     var iconName: String {
