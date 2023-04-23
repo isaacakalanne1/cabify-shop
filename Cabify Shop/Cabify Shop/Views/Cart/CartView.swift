@@ -38,7 +38,7 @@ struct CartView: View {
             CapsuleButtonView(viewModel: viewModel, titleString: "Proceed to Checkout") {
                 viewModel.isShowingOrderConfirmedAlert.toggle()
             }
-            .accessibilityIdentifier("proceedToCheckoutButton")
+            .accessibilityIdentifier(AccessibilityIdentifier.proceedToCheckoutButton)
             .alert("Order Confirmed for \(formattedPrice)", isPresented: $viewModel.isShowingOrderConfirmedAlert, actions: {
 
                 Button("OK", role: .cancel, action: {
