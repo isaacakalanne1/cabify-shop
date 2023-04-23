@@ -62,7 +62,8 @@ struct QuantitySelectView: View {
                     .foregroundColor(Color.black)
                     .frame(maxWidth: .infinity, maxHeight: 20)
             }
-            .accessibilityIdentifier("subtractQuantityButton")
+            .accessibilityIdentifier(AccessibilityIdentifier.subtractQuantityButton(orientation: orientation,
+                                                                                    product: product))
             Divider()
                 .background(Color.black.opacity(viewModel.opactiy.standard))
             Text("\(quantity)")

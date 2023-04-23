@@ -16,9 +16,14 @@ public struct AccessibilityIdentifier {
     static public let cartContainerView = "cartContainerView"
     static public let emptyCartView = "emptyCartView"
     static public let cartView = "cartView"
+    
     static public func addQuantityButton(orientation: Orientation, product: Product) -> String {
         return "\(orientation.rawValue)\(product.code)AddQuantityButton"
     }
+    static public func subtractQuantityButton(orientation: Orientation, product: Product) -> String {
+        return "\(orientation.rawValue)\(product.code)SubtractQuantityButton"
+    }
+    
     static public let orderConfirmedOKButton = "orderConfirmedOKButton"
     static public func circleButton(type: CircleButtonType, product: Product) -> String {
         return "\(type.iconName)\(product.code)CircleButton"

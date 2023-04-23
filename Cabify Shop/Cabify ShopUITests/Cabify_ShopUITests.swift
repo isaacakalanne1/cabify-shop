@@ -8,78 +8,86 @@
 import XCTest
 
 final class Cabify_ShopUITests: XCTestCase {
+    
+    let timeout = 3
+    let mugString = "MUG"
+    let voucherString = "VOUCHER"
+    
+    var viewYourCartButton: XCUIElement {
+        app.buttons["viewYourCartButton"]
+    }
+    
+    var proceedToCheckoutButton: XCUIElement {
+        app.buttons["proceedToCheckoutButton"]
+    }
+    
+    var orderConfirmedOKButton: XCUIElement {
+        app.buttons["orderConfirmedOKButton"]
+    }
+    
+    func addToCartButton(_ productString: String) -> XCUIElement {
+        app.buttons["cart\(productString)CircleButton"]
+    }
+    
+    func removeFromCartButton(_ productString: String) -> XCUIElement {
+        app.buttons["trash\(productString)CircleButton"]
+    }
+    
+    func addQuantityOfProductButton(_ productString: String) -> XCUIElement {
+        app.buttons["horizontal\(productString)AddQuantityButton"]
+    }
+    
+    func subtractQuantityInCartButton(_ productString: String) -> XCUIElement {
+        app.buttons["vertical\(productString)SubtractQuantityButton"]
+    }
+    
+    func discountPriceText(_ productString: String) -> XCUIElement {
+        app.staticTexts["\(productString)DiscountPriceText"]
+    }
+    
+    func noDiscountPriceText(_ productString: String) -> XCUIElement {
+        app.staticTexts["\(productString)NoDiscountPriceText"]
+    }
+    
+    var app: XCUIApplication!
+    
+    override func setUpWithError() throws {
+        app = XCUIApplication()
+        app.launch()
+    }
+    
+    override func tearDownWithError() throws {
+        app = nil
+    }
 
     func testViewYourCart_emptyCart() throws {
-        let app = XCUIApplication()
-        app.launch()
 
-        let timeout = 2
-        let viewYourCartButton = app.buttons["viewYourCartButton"]
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         viewYourCartButton.tap()
         
-        let proceedToCheckoutButton = app.buttons["proceedToCheckoutButton"]
         XCTAssertFalse(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
     }
     
-    func testAddThenDelete3MugsFromCart() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-        let timeout = 2
-        let productString = "MUG"
-        
-        let addQuantityButton = app.buttons["horizontal\(productString)AddQuantityButton"]
-        XCTAssertTrue(addQuantityButton.waitForExistence(timeout: TimeInterval(timeout)))
-        addQuantityButton.tap()
-        addQuantityButton.tap()
-        addQuantityButton.tap()
-        
-        let addToCartButton = app.buttons["cart\(productString)CircleButton"]
-        XCTAssertTrue(addToCartButton.waitForExistence(timeout: TimeInterval(timeout)))
-        addToCartButton.tap()
-        
-        let viewYourCartButton = app.buttons["viewYourCartButton"]
-        XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
-        viewYourCartButton.tap()
-        
-        let priceText = app.staticTexts["\(productString)NoDiscountPriceText"]
-        XCTAssertTrue(priceText.waitForExistence(timeout: TimeInterval(timeout)))
-        
-        let trashButton = app.buttons["trash\(productString)CircleButton"]
-        XCTAssertTrue(trashButton.waitForExistence(timeout: TimeInterval(timeout)))
-        trashButton.tap()
-        
-        XCTAssertFalse(priceText.waitForExistence(timeout: TimeInterval(timeout)))
-    }
-    
     func testBuy1Mug() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-        let timeout = 3
-        let productString = "MUG"
+        let productString = mugString
         
-        let addQuantityButton = app.buttons["horizontal\(productString)AddQuantityButton"]
+        let addQuantityButton = addQuantityOfProductButton(productString)
         XCTAssertTrue(addQuantityButton.waitForExistence(timeout: TimeInterval(timeout)))
         addQuantityButton.tap()
         
-        let addToCartButton = app.buttons["cart\(productString)CircleButton"]
+        let addToCartButton = addToCartButton(productString)
         XCTAssertTrue(addToCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         addToCartButton.tap()
         
-        let viewYourCartButton = app.buttons["viewYourCartButton"]
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         viewYourCartButton.tap()
         
-        let priceText = app.staticTexts["\(productString)NoDiscountPriceText"]
+        let priceText = noDiscountPriceText(productString)
         XCTAssertTrue(priceText.waitForExistence(timeout: TimeInterval(timeout)))
         
-        let proceedToCheckoutButton = app.buttons["proceedToCheckoutButton"]
         XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
         proceedToCheckoutButton.tap()
         
-        let orderConfirmedOKButton = app.buttons["orderConfirmedOKButton"]
         XCTAssertTrue(orderConfirmedOKButton.waitForExistence(timeout: TimeInterval(timeout)))
         orderConfirmedOKButton.tap()
         
@@ -87,31 +95,25 @@ final class Cabify_ShopUITests: XCTestCase {
     }
     
     func testAdd1MugToCart_ThenDeleteFromCart() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-        let timeout = 3
-        let productString = "MUG"
+        let productString = mugString
         
-        let addQuantityButton = app.buttons["horizontal\(productString)AddQuantityButton"]
+        let addQuantityButton = addQuantityOfProductButton(productString)
         XCTAssertTrue(addQuantityButton.waitForExistence(timeout: TimeInterval(timeout)))
         addQuantityButton.tap()
         
-        let addToCartButton = app.buttons["cart\(productString)CircleButton"]
+        let addToCartButton = addToCartButton(productString)
         XCTAssertTrue(addToCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         addToCartButton.tap()
         
-        let viewYourCartButton = app.buttons["viewYourCartButton"]
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         viewYourCartButton.tap()
         
-        let priceText = app.staticTexts["\(productString)NoDiscountPriceText"]
+        let priceText = noDiscountPriceText(productString)
         XCTAssertTrue(priceText.waitForExistence(timeout: TimeInterval(timeout)))
         
-        let proceedToCheckoutButton = app.buttons["proceedToCheckoutButton"]
         XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
         
-        let trashButton = app.buttons["trash\(productString)CircleButton"]
+        let trashButton = removeFromCartButton(productString)
         XCTAssertTrue(trashButton.waitForExistence(timeout: TimeInterval(timeout)))
         trashButton.tap()
         
@@ -119,33 +121,26 @@ final class Cabify_ShopUITests: XCTestCase {
     }
     
     func testBuy2Vouchers() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-        let timeout = 3
-        let productString = "VOUCHER"
+        let productString = voucherString
         
-        let addQuantityButton = app.buttons["horizontal\(productString)AddQuantityButton"]
+        let addQuantityButton = addQuantityOfProductButton(productString)
         XCTAssertTrue(addQuantityButton.waitForExistence(timeout: TimeInterval(timeout)))
         addQuantityButton.tap()
         addQuantityButton.tap()
         
-        let addToCartButton = app.buttons["cart\(productString)CircleButton"]
+        let addToCartButton = addToCartButton(productString)
         XCTAssertTrue(addToCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         addToCartButton.tap()
         
-        let viewYourCartButton = app.buttons["viewYourCartButton"]
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         viewYourCartButton.tap()
         
-        let priceText = app.staticTexts["\(productString)NoDiscountPriceText"]
+        let priceText = noDiscountPriceText(productString)
         XCTAssertTrue(priceText.waitForExistence(timeout: TimeInterval(timeout)))
         
-        let proceedToCheckoutButton = app.buttons["proceedToCheckoutButton"]
         XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
         proceedToCheckoutButton.tap()
         
-        let orderConfirmedOKButton = app.buttons["orderConfirmedOKButton"]
         XCTAssertTrue(orderConfirmedOKButton.waitForExistence(timeout: TimeInterval(timeout)))
         orderConfirmedOKButton.tap()
         
@@ -153,13 +148,9 @@ final class Cabify_ShopUITests: XCTestCase {
     }
     
     func testViewYourCart_Buy5Vouchers() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-        let timeout = 3
-        let productString = "VOUCHER"
+        let productString = voucherString
         
-        let addQuantityButton = app.buttons["horizontal\(productString)AddQuantityButton"]
+        let addQuantityButton = addQuantityOfProductButton(productString)
         XCTAssertTrue(addQuantityButton.waitForExistence(timeout: TimeInterval(timeout)))
         addQuantityButton.tap()
         addQuantityButton.tap()
@@ -167,25 +158,107 @@ final class Cabify_ShopUITests: XCTestCase {
         addQuantityButton.tap()
         addQuantityButton.tap()
         
-        let addToCartButton = app.buttons["cart\(productString)CircleButton"]
+        let addToCartButton = addToCartButton(productString)
         XCTAssertTrue(addToCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         addToCartButton.tap()
         
-        let viewYourCartButton = app.buttons["viewYourCartButton"]
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         viewYourCartButton.tap()
         
-        let priceText = app.staticTexts["\(productString)DiscountPriceText"]
+        let priceText = discountPriceText(productString)
         XCTAssertTrue(priceText.waitForExistence(timeout: TimeInterval(timeout)))
         
-        let proceedToCheckoutButton = app.buttons["proceedToCheckoutButton"]
         XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
         proceedToCheckoutButton.tap()
         
-        let orderConfirmedOKButton = app.buttons["orderConfirmedOKButton"]
         XCTAssertTrue(orderConfirmedOKButton.waitForExistence(timeout: TimeInterval(timeout)))
         orderConfirmedOKButton.tap()
         
         XCTAssertFalse(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
+    }
+    
+    func testAdd3VouchersToCartThenDelete1() throws {
+        let productString = voucherString
+        
+        let addQuantityButton = addQuantityOfProductButton(productString)
+        XCTAssertTrue(addQuantityButton.waitForExistence(timeout: TimeInterval(timeout)))
+        addQuantityButton.tap()
+        addQuantityButton.tap()
+        addQuantityButton.tap()
+        
+        let addToCartButton = addToCartButton(productString)
+        XCTAssertTrue(addToCartButton.waitForExistence(timeout: TimeInterval(timeout)))
+        addToCartButton.tap()
+        
+        XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
+        viewYourCartButton.tap()
+        
+        let discountPriceText = discountPriceText(productString)
+        XCTAssertTrue(discountPriceText.waitForExistence(timeout: TimeInterval(timeout)))
+        XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
+        
+        let subtractFromCartButton = subtractQuantityInCartButton(productString)
+        XCTAssertTrue(subtractFromCartButton.waitForExistence(timeout: TimeInterval(timeout)))
+        subtractFromCartButton.tap()
+        
+        let noDiscountPriceText = noDiscountPriceText(productString)
+        XCTAssertTrue(noDiscountPriceText.waitForExistence(timeout: TimeInterval(timeout)))
+        
+        XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
+    }
+    
+    func testAddThenDelete3VouchersFromCart_viaSubtractButton() throws {
+        let productString = voucherString
+        
+        let addQuantityButton = addQuantityOfProductButton(productString)
+        XCTAssertTrue(addQuantityButton.waitForExistence(timeout: TimeInterval(timeout)))
+        addQuantityButton.tap()
+        addQuantityButton.tap()
+        addQuantityButton.tap()
+        
+        let addToCartButton = addToCartButton(productString)
+        XCTAssertTrue(addToCartButton.waitForExistence(timeout: TimeInterval(timeout)))
+        addToCartButton.tap()
+        
+        XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
+        viewYourCartButton.tap()
+        
+        let discountPriceText = discountPriceText(productString)
+        XCTAssertTrue(discountPriceText.waitForExistence(timeout: TimeInterval(timeout)))
+        XCTAssertTrue(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
+        
+        let subtractFromCartButton = subtractQuantityInCartButton(productString)
+        XCTAssertTrue(subtractFromCartButton.waitForExistence(timeout: TimeInterval(timeout)))
+        subtractFromCartButton.tap()
+        subtractFromCartButton.tap()
+        subtractFromCartButton.tap()
+        
+        XCTAssertFalse(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
+    }
+    
+    func testAddThenDelete3MugsFromCart_viaTrashButton() throws {
+        let productString = mugString
+        
+        let addQuantityButton = addQuantityOfProductButton(productString)
+        XCTAssertTrue(addQuantityButton.waitForExistence(timeout: TimeInterval(timeout)))
+        addQuantityButton.tap()
+        addQuantityButton.tap()
+        addQuantityButton.tap()
+        
+        let addToCartButton = addToCartButton(productString)
+        XCTAssertTrue(addToCartButton.waitForExistence(timeout: TimeInterval(timeout)))
+        addToCartButton.tap()
+        
+        XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
+        viewYourCartButton.tap()
+        
+        let priceText = noDiscountPriceText(productString)
+        XCTAssertTrue(priceText.waitForExistence(timeout: TimeInterval(timeout)))
+        
+        let trashButton = removeFromCartButton(productString)
+        XCTAssertTrue(trashButton.waitForExistence(timeout: TimeInterval(timeout)))
+        trashButton.tap()
+        
+        XCTAssertFalse(priceText.waitForExistence(timeout: TimeInterval(timeout)))
     }
 }
