@@ -21,7 +21,7 @@ struct CartView: View {
                 VStack {
                     ForEach(Array(viewModel.productsInCart.keys), id: \.self) { product in
                         HStack {
-                            ProductCartView(viewModel: viewModel, product: product)
+                            InCartProductView(viewModel: viewModel, product: product)
                                 .frame(maxWidth: .infinity, maxHeight: 110)
                             CircleButtonView(size: viewModel.circleButtonSize,
                                              type: .trash,

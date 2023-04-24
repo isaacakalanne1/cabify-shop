@@ -1,5 +1,5 @@
 //
-//  ProductCartView.swift
+//  InCartProductView.swift
 //  Cabify Shop
 //
 //  Created by iakalann on 19/04/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 import ProductsService
 
-struct ProductCartView: View {
+struct InCartProductView: View {
     
     @StateObject var viewModel: BrowseView.ViewModel
     let product: Product
