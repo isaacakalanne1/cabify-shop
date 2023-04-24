@@ -90,7 +90,9 @@ extension BrowseView {
         
         public func shouldApplyDiscount(for type: ProductType, quantity: Int) -> Bool {
             switch type {
-            case .voucher, .tshirt:
+            case .voucher:
+                return quantity >= 2
+            case .tshirt:
                 return quantity >= 3
             case .mug:
                 return false
@@ -133,8 +135,8 @@ extension BrowseView {
         }
         
         private func voucherDiscountedPrice(originalPrice: Float, quantity originalQuantityOfVouchers: Int) -> Float {
-            let vouchersNotIncludedInDeal = originalQuantityOfVouchers % 3
-            let freeVouchers = (originalQuantityOfVouchers - vouchersNotIncludedInDeal)/3
+            let vouchersNotIncludedInDeal = originalQuantityOfVouchers % 2
+            let freeVouchers = (originalQuantityOfVouchers - vouchersNotIncludedInDeal)/2
             let totalPaidVouchers = originalQuantityOfVouchers - freeVouchers
             return Float(totalPaidVouchers) * originalPrice
         }
