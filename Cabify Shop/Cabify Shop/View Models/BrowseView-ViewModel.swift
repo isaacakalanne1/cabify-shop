@@ -24,8 +24,6 @@ extension BrowseView {
             26 + padding.standard
         }
         
-        @Published var isLoading = false // TODO: Update app to use isLoading (possibly an enum) to determine whether to show spinner, content, or explanation
-        
         @Published var allProducts = [Product]()
         @Published var productsInCart = [Product: Int]()
         @Published var isShowingCart = false
