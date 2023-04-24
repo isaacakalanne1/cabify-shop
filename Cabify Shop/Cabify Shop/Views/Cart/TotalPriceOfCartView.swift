@@ -1,5 +1,5 @@
 //
-//  TotalCartPriceView.swift
+//  TotalPriceOfCartView.swift
 //  Cabify Shop
 //
 //  Created by iakalann on 21/04/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TotalCartPriceView: View {
+struct TotalPriceOfCartView: View {
     
     @StateObject var viewModel: BrowseView.ViewModel
     

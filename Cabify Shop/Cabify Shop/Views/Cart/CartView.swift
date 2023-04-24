@@ -34,7 +34,7 @@ struct CartView: View {
                 }
             }
             .frame(maxHeight: .infinity)
-            TotalCartPriceView(viewModel: viewModel)
+            TotalPriceOfCartView(viewModel: viewModel)
             CapsuleButtonView(viewModel: viewModel, titleString: "Proceed to Checkout") {
                 viewModel.isShowingOrderConfirmedAlert.toggle()
             }
