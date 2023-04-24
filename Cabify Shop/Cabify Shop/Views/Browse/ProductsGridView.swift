@@ -12,11 +12,13 @@ struct ProductsGridView: View {
     @StateObject var viewModel: BrowseView.ViewModel
     
     var body: some View {
-        LazyVGrid(columns: viewModel.columns) {
-            ForEach(viewModel.allProducts, id: \.self) { product in
-                ProductView(viewModel: viewModel, product: product)
+        ScrollView {
+            LazyVGrid(columns: viewModel.columns) {
+                ForEach(viewModel.allProducts, id: \.self) { product in
+                    ProductView(viewModel: viewModel, product: product)
+                }
+                .padding(viewModel.padding.large)
             }
-            .padding(viewModel.padding.large)
         }
     }
     
