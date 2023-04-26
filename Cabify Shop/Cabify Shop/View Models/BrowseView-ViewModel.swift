@@ -81,8 +81,8 @@ extension BrowseView {
         public func getTotalPriceOfCart() -> Float {
             var totalPrice = Float(0)
             for product in productsInCart.keys {
-                guard let quantity = productsInCart[product],
-                      let price = getDiscountedPrice(for: product, quantity: quantity) else { continue }
+                guard let quantity = productsInCart[product] else { continue }
+                let price = getDiscountedPrice(for: product, quantity: quantity)
                 totalPrice += price
             }
             return totalPrice
@@ -123,8 +123,8 @@ extension BrowseView {
             return discountString
         }
         
-        public func getDiscountedPrice(for product: Product, quantity: Int) -> Float? {
-            guard let discount = getDiscount(for: product) else { return nil }
+        public func getDiscountedPrice(for product: Product, quantity: Int) -> Float {
+            guard let discount = getDiscount(for: product) else { return product.price * Float(quantity) }
             let discountedPrice = discount.getDiscountedPrice(for: product, quantity: quantity)
             return discountedPrice
         }
@@ -132,7 +132,7 @@ extension BrowseView {
     }
 }
 
-extension Discount {
+private extension Discount {
     
     func getDiscountedPrice(for product: Product, quantity: Int) -> Float {
         switch self {
