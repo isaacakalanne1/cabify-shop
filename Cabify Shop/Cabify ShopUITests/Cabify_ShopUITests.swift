@@ -122,7 +122,7 @@ final class Cabify_ShopUITests: XCTestCase {
         
         let addQuantityButton = addQuantityOfProductButton(productString)
         let addToCartButton = addToCartButton(productString)
-        let priceText = noDiscountPriceText(productString)
+        let priceText = discountPriceText(productString)
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         
         XCTAssertTrue(addQuantityButton.waitForExistence(timeout: TimeInterval(timeout)))
@@ -174,7 +174,7 @@ final class Cabify_ShopUITests: XCTestCase {
         XCTAssertFalse(proceedToCheckoutButton.waitForExistence(timeout: TimeInterval(timeout)))
     }
     
-    func testAdd3VouchersToCartThenDelete1() throws {
+    func testAdd2VouchersToCartThenDelete1() throws {
         let productString = voucherString
         
         let addQuantityButton = addQuantityOfProductButton(productString)
@@ -187,7 +187,6 @@ final class Cabify_ShopUITests: XCTestCase {
         XCTAssertTrue(addToCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         XCTAssertTrue(viewYourCartButton.waitForExistence(timeout: TimeInterval(timeout)))
         
-        addQuantityButton.tap()
         addQuantityButton.tap()
         addQuantityButton.tap()
         addToCartButton.tap()
