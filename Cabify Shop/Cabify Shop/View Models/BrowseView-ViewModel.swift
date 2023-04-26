@@ -124,27 +124,43 @@ extension BrowseView {
         }
         
         public func getDiscountedPrice(for product: Product, quantity: Int) -> Float {
-            switch product.type {
-            case .voucher:
-                return voucherDiscountedPrice(originalPrice: product.price, quantity: quantity)
-            case .tshirt:
-                return tshirtDiscountedPrice(originalPrice: product.price, quantity: quantity)
-            case .mug, .none:
-                return product.price * Float(quantity)
-            }
+            guard let discount = getDiscount(for: product) else { return product.price * Float(quantity) }
+            let discountedPrice = discount.getDiscountedPrice(for: product, quantity: quantity)
+            return discountedPrice
         }
         
-        private func voucherDiscountedPrice(originalPrice: Float, quantity originalQuantityOfVouchers: Int) -> Float {
-            let vouchersNotIncludedInDeal = originalQuantityOfVouchers % 2
-            let freeVouchers = (originalQuantityOfVouchers - vouchersNotIncludedInDeal)/2
-            let totalPaidVouchers = originalQuantityOfVouchers - freeVouchers
-            return Float(totalPaidVouchers) * originalPrice
-        }
-        
-        private func tshirtDiscountedPrice(originalPrice: Float, quantity: Int) -> Float {
-            let pricePerTshirt = quantity >= 3 ? Float(19) : originalPrice
-            let totalPrice = pricePerTshirt * Float(quantity)
-            return totalPrice
+    }
+}
+
+private extension Discount {
+    
+    func getDiscountedPrice(for product: Product, quantity: Int) -> Float {
+        switch self {
+        case .twoForOne:
+            return getTwoForOneDiscount(product: product,
+                                        quantity: quantity)
+        case .reducedTo(let reducedPrice, let amountToBuy):
+            return getReducedToPriceDiscount(product: product,
+                                             quantity: quantity,
+                                             reducedPrice: reducedPrice,
+                                             amountToBuy: amountToBuy)
         }
     }
+    
+    private func getTwoForOneDiscount(product: Product, quantity originalQuantityOfVouchers: Int) -> Float {
+        let vouchersNotIncludedInDeal = originalQuantityOfVouchers % 2
+        let freeVouchers = (originalQuantityOfVouchers - vouchersNotIncludedInDeal)/2
+        let totalPaidVouchers = originalQuantityOfVouchers - freeVouchers
+        return Float(totalPaidVouchers) * product.price
+    }
+    
+    private func getReducedToPriceDiscount(product: Product,
+                                           quantity: Int,
+                                           reducedPrice: Float,
+                                           amountToBuy: Int) -> Float {
+        let pricePerTshirt = quantity >= amountToBuy ? reducedPrice : product.price
+        let totalPrice = pricePerTshirt * Float(quantity)
+        return totalPrice
+    }
+    
 }
