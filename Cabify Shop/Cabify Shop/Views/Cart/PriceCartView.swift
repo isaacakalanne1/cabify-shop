@@ -17,9 +17,9 @@ struct PriceCartView: View {
     var body: some View {
         let originalPrice = product.price * Float(quantity)
         if let type = product.type,
-           viewModel.shouldApplyDiscount(for: type, quantity: quantity) {
+           viewModel.shouldApplyDiscount(for: type, quantity: quantity),
+           let discountedPrice = viewModel.getDiscountedPrice(for: product, quantity: quantity) {
             HStack {
-                let discountedPrice = viewModel.getDiscountedPrice(for: product, quantity: quantity)
                 Text("\(viewModel.formattedPrice(originalPrice))")
                     .foregroundColor(.gray)
                     .strikethrough()
