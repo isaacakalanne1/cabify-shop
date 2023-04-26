@@ -99,19 +99,8 @@ extension BrowseView {
             }
         }
         
-        private func getDiscount(for product: Product) -> Discount? {
-            switch product.type {
-            case .voucher:
-                return .twoForOne
-            case .tshirt:
-                return .reducedTo(19, amountToBuy: 3)
-            case .mug, .none:
-                return nil
-            }
-        }
-        
         public func getDiscountString(for product: Product) -> String? {
-            guard let discount = getDiscount(for: product) else { return nil }
+            guard let discount = product.getDiscount() else { return nil }
             
             var discountString: String?
             switch discount {
@@ -124,12 +113,33 @@ extension BrowseView {
         }
         
         public func getDiscountedPrice(for product: Product, quantity: Int) -> Float {
-            guard let discount = getDiscount(for: product) else { return product.price * Float(quantity) }
+            guard let discount = product.getDiscount() else {
+                return getDefaultTotalPrice(product: product, quantity: quantity)
+            }
             let discountedPrice = discount.getDiscountedPrice(for: product, quantity: quantity)
             return discountedPrice
         }
         
+        private func getDefaultTotalPrice(product: Product, quantity: Int) -> Float {
+            return product.price * Float(quantity)
+        }
+        
     }
+}
+
+private extension Product {
+    
+    func getDiscount() -> Discount? {
+        switch self.type {
+        case .voucher:
+            return .twoForOne
+        case .tshirt:
+            return .reducedTo(19, amountToBuy: 3)
+        case .mug, .none:
+            return nil
+        }
+    }
+    
 }
 
 private extension Discount {
